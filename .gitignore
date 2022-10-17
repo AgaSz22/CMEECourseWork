@@ -1,2 +1,10 @@
 *~ 
 *.tmp
+*.jpg
+*.png
+*.aux
+*.bbl
+*.log
+*.blg
+.csv
+.pdf
