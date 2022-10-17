@@ -1,16 +1,18 @@
-README file for week1
+# README file for week1
 
-#Brief description: This folder conatins a set of simple scripts that were created to practise bash and shell scripting, producing documents in Latex and povide introduction to Git
+## Brief description: 
+This folder conatins a set of simple scripts that were created to practise bash and shell scripting, producing documents in Latex and povide introduction to Git
 
-#Languages: bash, Unix shell
+## Languages: 
+bash, Unix shell
 
-#Dependencies: -
+## Dependencies: -
 
-#Installation: -
+## Installation: -
 
-#Project structure and Usage: 
+## Project structure and Usage: 
 
-week1 folder contains following files:
+### week1 folder contains following files:
 1) boilerplate.sh - simple boilerplate for shell scripts
 2) CompileLatex.sh - compile a Latex file with bibtex
 3) ConcatenateTwoFiles.sh - enables to merge two files provided by the user
@@ -24,6 +26,5 @@ week1 folder contains following files:
 11) UnixPrac1.txt - FASTA files assignemnt (practising bash commands)
 12) variables.sh - introduces different types of shell variables (and assignments)
 
-
-
-#Contact: Agnes Szwarczynska; aas122@ic.ac.uk
+## Contact: 
+Agnes Szwarczynska; aas122@ic.ac.uk
