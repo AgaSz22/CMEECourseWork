@@ -12,14 +12,17 @@ then
     bibtex $(basename "$1" .tex)
     pdflatex $1
     pdflatex $1
-    evince $(basename "$1" .tex).pdf &
+    mv $(basename "$1" .tex).pdf ../results
+    evince ../results/$(basename "$1" .tex).pdf &
 else
     pdflatex $1.tex
     bibtex $1
     pdflatex $1.tex
     pdflatex $1.tex
-    evince $1.pdf & 
+    mv $1.pdf ../results
+    evince ../results/$1.pdf & 
 fi
+
 
 ## Cleanup
 rm *.aux
