@@ -1,0 +1,652 @@
+Starting code feedback for Agnieszka, Week1
+
+Current Points = 100
+
+Note that: 
+(1) Major sections begin with a double "====" line 
+(2) Subsections begin with a single "====" line 
+(3) Code output or text file content are printed within single "*****" lines 
+
+======================================================================
+======================================================================
+Your Git repo size this week is about 1.56 MiB on disk 
+
+PART 1: Checking project workflow...
+
+Found the following directories in parent directory: .git, week1, Feedback
+
+Found the following files in parent directory: .gitignore, README.md
+
+Checking for key files in parent directory...
+
+Found .gitignore in parent directory, great! 
+
+Printing contents of .gitignore:
+
+**********************************************************************
+*~ 
+*.tmp
+*.jpg
+*.png
+*.aux
+*.bbl
+*.log
+*.blg
+.csv
+.pdf
+
+**********************************************************************
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+# README file for my CMEE Coursework Repository
+
+## Brief description: 
+CMEECourseWork directory contains a set of folders that are created weekly. Each folder stores weekly assignments and practice files. For more detailed description go to README files in respective weekly folders. The content of this file will be continuously updated.
+
+## Languages: 
+bash, Unix shell, Python
+
+## Dependencies: -
+
+## Installation: -
+
+## Project structure and Usage: 
+1) week1 folder - stores code, data & results from 1st to 7th Oct 2022.
+2) week2 folder - stores code, data & results from 9th to 14th Oct 2022.
+3) week3 folder - stores code, data & results from 17th to 21st Oct 2022.
+
+## Contact: 
+Agnes Szwarczynska; aas122@ic.ac.uk
+
+
+**********************************************************************
+
+======================================================================
+Looking for the weekly directories...
+
+Found 1 weekly directories: week1
+
+The Week1 directory will be assessed 
+
+======================================================================
+======================================================================
+PART 2: Checking weekly code and workflow...
+
+======================================================================
+Assessing WEEK1...
+
+Found the following directories: code, sandbox, data, results
+
+Found the following files: README.md
+
+Checking for readme file in weekly directory...
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+# README file for week1
+
+## Brief description: 
+This folder conatins a set of simple scripts that were created to practise bash and shell scripting, producing documents in Latex and povide introduction to Git
+
+## Languages: 
+bash, Unix shell
+
+## Dependencies: -
+
+## Installation: -
+
+## Project structure and Usage: 
+
+### week1 folder contains following files:
+1) boilerplate.sh - simple boilerplate for shell scripts
+2) CompileLatex.sh - compile a Latex file with bibtex
+3) ConcatenateTwoFiles.sh - enables to merge two files provided by the user
+4) CountLines.sh - enables to count lines of a file provided by the user
+5) csvtospace.sh - changes a csv file provided by the user into a space separated file
+6) FirstBiblio.bib - provides biliography for the Latex file
+7) FirstExample.tex - exemplary document in Latex
+8) MyExampleScript.sh - introduces environmental variables
+9) tabtocsv.sh - changes a tab separated file into a csv file
+10) tiff2png.sh - converts a tiff file provided by teh user into a png file
+11) UnixPrac1.txt - FASTA files assignemnt (practising bash commands)
+12) variables.sh - introduces different types of shell variables (and assignments)
+
+## Contact: 
+Agnes Szwarczynska; aas122@ic.ac.uk
+**********************************************************************
+
+Results directory is empty - good! 
+
+Found 12 code files: ConcatenateTwoFiles.sh, CountLines.sh, FirstExample.tex, CompileLaTex.sh, variables.sh, boilerplate.sh, tiff2png.sh, MyExampleScript.sh, tabtocsv.sh, csvtospace.sh, UnixPrac1.txt, FirstBiblio.bib
+
+======================================================================
+Testing script/code files...
+
+======================================================================
+Inspecting script file ConcatenateTwoFiles.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+
+if [ $# -eq 0 ]   #Checking whether the user provided appropriate number of arguments
+    then 
+        echo "Please provide two arguments for files you would like to merge"
+    exit 
+elif [ $# -eq 1 ]
+    then 
+        echo "Please provide a second file argument"
+    exit
+elif [ $# -eq 2 ]
+	then
+		echo "The output file argument is missing"
+	exit
+fi
+
+if [ ! -f $1 ]     #Checking whether the user provided exisitng files
+    then 
+        echo "Ooops.'$1' is not a file"
+    exit 
+elif [ ! -f $2 ]
+	then 
+        echo "Ooops.'$2' is not a file"
+    exit
+fi
+
+cat ../data/$1 > ../results/$3    #Concatenating files provided by the user and displaying the final output
+cat ../data/$2 >> ../results/$3
+echo "Merged file is"
+cat ../results/$3
+
+**********************************************************************
+
+Testing ConcatenateTwoFiles.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Please provide two arguments for files you would like to merge
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00579s
+
+======================================================================
+Inspecting script file CountLines.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+
+if [ $# -eq 0 ]   #Checking whether the user provided an argument
+    then 
+        echo "Please provide a file argument"
+    exit
+fi
+
+if [ ! -f $1 ]     #Checking whether the user provided exisitng files
+    then 
+        echo "Ooops.'$1' is not a file"
+    exit 
+fi
+
+if [ -f $1 ]      #Printing number of lines in a file
+    then
+        NumLines=`wc -l < $1`
+        echo "The file $1 has $NumLines lines"
+    echo
+fi
+
+exit
+**********************************************************************
+
+Testing CountLines.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Please provide a file argument
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00752s
+
+======================================================================
+Inspecting script file FirstExample.tex...
+
+File contents are:
+
+**********************************************************************
+\documentclass[12pt]{article}
+\title{A Simple Document}
+\author{Agnes Szwarczynska}
+
+\date{}
+
+\begin{document}
+    \maketitle
+
+    \begin{abstract}
+        This paper analyzes a seminal equation in population biology
+    \end{abstract}
+
+    \section{Introduction}
+    
+    Blah Blah
+
+    \section{Materials \& Methods}
+
+    A foundactional eqquation of population biology is:
+
+    \begin{equation}
+        \frac{dN}{dt} = r N (1 - \frac{N}{K})
+    \end{equation}
+
+    It was first proposed by Verhulst in 1838 \cite{verhulst1838notice}
+
+    \bibliographystyle{plain}
+
+    \bibliography{FirstBiblio}
+
+\end{document}
+
+**********************************************************************
+
+Testing FirstExample.tex...
+
+======================================================================
+Inspecting script file CompileLaTex.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+
+if [ $# -eq 0 ]   #Checking whether the user provided an argument
+    then 
+        echo "Please provide a file argument"
+    exit
+fi
+
+if [[ $1 == *.tex ]]  ##Checking whether the input file contains .tex extension. If not, then it adds the .tex extension.
+then
+    pdflatex $1
+    bibtex $(basename "$1" .tex)
+    pdflatex $1
+    pdflatex $1
+    mv $(basename "$1" .tex).pdf ../results
+    evince ../results/$(basename "$1" .tex).pdf &
+else
+    pdflatex $1.tex
+    bibtex $1
+    pdflatex $1.tex
+    pdflatex $1.tex
+    mv $1.pdf ../results
+    evince ../results/$1.pdf & 
+fi
+
+
+## Cleanup
+rm *.aux
+rm *.log
+rm *.bbl
+rm *.blg
+
+exit
+**********************************************************************
+
+Testing CompileLaTex.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Please provide a file argument
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00527s
+
+======================================================================
+Inspecting script file variables.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/sh
+
+## Illustrates the use of variables
+
+# Special variables
+
+echo "This script was called with $# parameters"
+echo "This script's name is $0"
+echo "The arguments are $@"
+echo "The first argument is $1"
+echo "The second argument is $2"
+
+# Assigned Variables; Explicit declaration:
+MY_VAR="some string"
+echo "the current value of the variable is:" $MY_VAR
+echo
+echo "Please enter a new string"
+read MY_VAR
+echo
+echo "the current value of the variable is:" $MY_VAR
+
+## Assigned Variables; Reading (multiple values) from user input:
+echo "Enter two numbers separated by space(s)"
+read a b
+echo "you entered" $a "and" $b "Their sum is:"
+
+##My Assigned Variables; Command substitution 
+MY_SUM=$(expr $a+ $b)
+echo MY_SUM
+**********************************************************************
+
+Testing variables.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+This script was called with 0 parameters
+This script's name is variables.sh
+The arguments are 
+The first argument is 
+The second argument is 
+the current value of the variable is: some string
+
+Please enter a new string
+
+the current value of the variable is:
+Enter two numbers separated by space(s)
+you entered and Their sum is:
+MY_SUM
+
+**********************************************************************
+
+Encountered error (or warning):
+expr: syntax error: missing argument after ‘+’
+
+======================================================================
+Inspecting script file boilerplate.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/sh
+# Author: Agnes Szwarczynska; aas122@ic.ac.uk
+# Script: boilerplate.sh
+# Desc: simple boilerplate for shell scripts
+# Arguments: none
+# Date: Oct 2022
+
+echo -e "\nThis is a shell script! \n"
+
+#exit 
+
+
+**********************************************************************
+
+Testing boilerplate.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+This is a shell script! 
+
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00630s
+
+======================================================================
+Inspecting script file tiff2png.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+
+if [ $# -eq 0 ]   #Checking whether the user provided an argument
+    then 
+        echo "Please provide a .tiff file as an argument"
+    exit
+fi
+
+if [ ! -f $1 ]    #Checking whether the user provided exisitng files
+    then 
+        echo "Ooops.'$1' is not a file"
+    exit 
+fi
+
+if [ -f $1 ]     #Converting a .tiff file to .png
+    then 
+        for f in *.tiff;   
+            do  
+                echo "Converting $f"; 
+                convert "$f"  "$(basename "$f" .tiff).png"; 
+                echo "Done!"
+                mv  *.png ../results/
+            done
+fi
+    exit
+**********************************************************************
+
+Testing tiff2png.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Please provide a .tiff file as an argument
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00596s
+
+======================================================================
+Inspecting script file MyExampleScript.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/sh
+
+#This introduces you to the $USER (same as $USERNAME) environmental variable.
+
+MSG1="Hello"    
+MSG2=$USER
+echo "$MSG1 $MSG2"
+echo "Hello $USER"
+echo
+**********************************************************************
+
+Testing MyExampleScript.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Hello mhasoba
+Hello mhasoba
+
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00500s
+
+======================================================================
+Inspecting script file tabtocsv.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/sh
+# Author: Agnes Szwarczynska; ass122@.ac.uk
+# Script: tabtocsv.sh
+# Description: substitute the tabs in the files with commas
+#
+# Saves the output into a .csv file
+# Arguments: 1 -> tab delimited file
+# Date: Oct 2019
+
+if [ $# -eq 0 ]
+    then 
+        echo "Please provide a second file"
+    exit 
+
+fi
+echo "Creating a comma delimited version of $1 ..."
+cat ../data/$1 | tr -s "\t" "," >> ../results/${1%.txt}.csv
+echo "Done!"
+    exit
+
+**********************************************************************
+
+Testing tabtocsv.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Please provide a second file
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00591s
+
+======================================================================
+Inspecting script file csvtospace.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bash/bin
+
+if [ $# -eq 0 ]   #Checking whether the user provided an argument
+    then 
+        echo "Please provide a file argument"
+    exit
+fi
+
+if [ ! -f $1 ]     #Checking whether the user provided exisitng files
+    then 
+        echo "Ooops.'$1' is not a file"
+    exit 
+fi
+
+if [ $# -eq 1 ]  #Creating a file with the .txt extension
+    then
+        echo "Creating a space separated version of $1 ..."
+        cat $1 | tr "," " " >>../results/"$(basename "$1" .csv).txt"
+    echo "Done!"
+fi
+
+exit
+**********************************************************************
+
+Testing csvtospace.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Please provide a file argument
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00542s
+
+======================================================================
+Inspecting script file UnixPrac1.txt...
+
+File contents are:
+
+**********************************************************************
+
+cat ../data/fasta/E.coli.fasta | wc -l && cat ../data/fasta/407228326.fasta | wc -l && cat ../data/fasta/407228412.fasta | wc -l ##1 Count how many lines there are in each file
+
+cat ../data/fasta/E.coli.fasta| sed '1d' ##2 Print everything starting from the second line for the E. coli genome
+
+cat ../data/fasta/E.coli.fasta| sed '1d' | tr -d '\n' | wc -m ##3 Count the sequence length of this genome
+
+cat ../data/fasta/E.coli.fasta| sed '1d' | tr -d '\n' | grep -o ATGC| wc -l ##4 Count the matches of a particular sequence, “ATGC” in the genome of E. coli 
+
+AT=$(cat ../data/fasta/E.coli.fasta |sed '1d' |tr -d '\n' |grep -o 'A\|T' | wc -l) && GC=$(cat ../data/fasta/E.coli.fasta |sed '1d' |tr -d '\n' |grep -o 'C\|G' | wc -l) && echo $AT/$GC | bc -l ##5 Compute the AT/GC ratio
+
+
+
+
+
+
+
+
+
+
+**********************************************************************
+
+Testing UnixPrac1.txt...
+
+======================================================================
+Inspecting script file FirstBiblio.bib...
+
+File contents are:
+
+**********************************************************************
+@article{verhulst1838notice,
+  title={Notice sur la loi que la population suit dans son accroissement},
+  author={Verhulst, Pierre-Fran{\c{c}}ois},
+  journal={Corresp. Math. Phys.},
+  volume={10},
+  pages={113--126},
+  year={1838}
+}
+**********************************************************************
+
+Testing FirstBiblio.bib...
+
+======================================================================
+======================================================================
+Finished running scripts
+
+Ran into 1 errors
+
+======================================================================
+======================================================================
+
+FINISHED WEEKLY ASSESSMENT
+
+Current Points for the Week = 100
+
+NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!
