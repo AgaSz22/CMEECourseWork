@@ -8,3 +8,8 @@
 *.blg
 .csv
 .pdf
+
+#Python
+__pycache__/
+*.py[cod]
+*$py.class

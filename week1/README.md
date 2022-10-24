@@ -1,7 +1,7 @@
 # README file for week1
 
 ## Brief description: 
-This folder conatins a set of simple scripts that were created to practise bash and shell scripting, producing documents in Latex and povide introduction to Git
+This folder contains a set of simple scripts that were created to practise bash and shell scripting, producing documents in Latex and povide introduction to Git
 
 ## Languages: 
 bash, Unix shell
