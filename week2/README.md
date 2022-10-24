@@ -1,10 +1,10 @@
 # README file for week1
 
 ## Brief description: 
-This folder conatins a set of simple scripts that were created to practise bash and shell scripting, producing documents in Latex and povide introduction to Git
+This folder conatins a set of scripts that were created to practise creating loops, lists comprehensions and Python programmes. 
 
 ## Languages: 
-bash, Unix shell, Python
+Python
 
 ## Dependencies: -
 
@@ -12,7 +12,7 @@ bash, Unix shell, Python
 
 ## Project structure and Usage: 
 
-### week1 folder contains following files:
+### week1 code folder contains following files:
 1) lc1.py - list comprehensions and loops (species)
 2) lc2.py - list comprehensions and loops (months and rainfall values)
 3) dictionary.py - dictionary (species names classified according to their order)
@@ -35,6 +35,10 @@ bash, Unix shell, Python
 20) debugme.py - learning how debugging works
 21) align_seqs.py - programme that compares two DNA sequences 
 22) oaks_debugme.py - searching for oka species in a give list
+
+data folder - contains input files
+
+sandbox - contains practice files that can be ignored
 
 ## Contact: 
 Agnes Szwarczynska; aas122@ic.ac.uk
