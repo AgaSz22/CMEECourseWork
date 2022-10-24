@@ -27,7 +27,7 @@ def is_an_oak(name):
 #Checking whether the dataset contains any oak species (species are given in latin)
 def main(argv): 
     f = open('../data/TestOaksData.csv','r')
-    g = open('../data/JustOaksData.csv','w')
+    g = open('../results/JustOaksData.csv','w')
     taxa = csv.reader(f)
     csvwrite = csv.writer(g)
     oaks = set()
