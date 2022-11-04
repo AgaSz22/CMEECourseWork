@@ -40,6 +40,7 @@ R
 25) Girko.R - exploring Girko’s circular law
 26) MyBars.R - using the ggplot geom text to annotate a plot
 27) plotLin.R - annotating a linear regression plot 
+28) SQLinR.R - exploring databases
  
 
 data folder - contains input files
