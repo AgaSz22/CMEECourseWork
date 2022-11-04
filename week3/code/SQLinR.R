@@ -1,12 +1,12 @@
 #install the sqlite package
-install.packages('sqldf')
+#install.packages('sqldf')
 
 # To load the packages
 library(sqldf)
 
 # The command below opens a connection to the database.
 #If the database does not yet exist, one is created in the working directory of R.
-db <- dbConnect(SQLite(), dbname='Test.sqlite')
+db <- dbConnect(SQLite(), dbname='../results/Test.sqlite')
 
 # Now let's enter some data to the table
 # Using the db connection to our database, the data are entered using SQL queries
@@ -44,7 +44,7 @@ dbGetQuery(db, "SELECT * FROM Consumer WHERE ConPhylum='Chordata'")
 # The easiest way is to read the csv files into R as data frames.
 # Then the data frames are imported into the database.
 
-Resource <- read.csv("../Data/Resource.csv")  # Read csv files into R
+Resource <- read.csv("../data/Resource.csv")  # Read csv files into R
 
 # Import data frames into database
  dbWriteTable(conn = db, name = "Resource", value = Resource, row.names = FALSE)
