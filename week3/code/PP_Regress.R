@@ -64,21 +64,23 @@ df <- data.frame()
 
 #extracting pieces of information:intercept, R^2, f.value, slope & p-value and adding them to the data frame
 for (model in models){
+  # print(as.numeric(summary(model)$fstatistic[1]))
   summary_table <- summary(model)
   values_for_df <- c(summary_table$coefficients[1], #intercept
                      summary_table$r.squared, #r.squared
-                     summary_table$fstatistic[1], #f.value
-                     summary_table$coefficients[2][2], #slope
+                     as.numeric(summary_table$fstatistic[1]), #f.value
+                     #summary(model)$fstatistic[1],
+                     summary_table$coefficients[2], #slope
                      summary_table$coefficients[1,4]) #p-value
   df = rbind(df, values_for_df)
 }
 
 #Giving meaningful column names
 
-colnames(df)[1] <- "Regression.slope"
-colnames(df)[2] <- "Regression.intercept"
-colnames(df)[3] <- "R.squared"
-colnames(df)[4] <- "F.statistic"
+colnames(df)[1] <- "Intercept"
+colnames(df)[2] <- "R.squared"
+colnames(df)[3] <- "F.value"
+colnames(df)[4] <- "Slope"
 colnames(df)[5] <- "P.value"
 
 #Creating first two rows with the Predator.lifestage & Type.of.feeding.interaction data 
