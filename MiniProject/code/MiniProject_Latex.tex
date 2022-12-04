@@ -1,0 +1,177 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[left=20mm, right=20mm, top=20mm, bottom=20mm]{geometry}
+\usepackage[format=hang,font=small,labelfont=bf]{caption}
+\usepackage{hyperref}
+\usepackage{subcaption}
+\usepackage[english]{babel}
+\usepackage[nottoc]{tocbibind}
+
+\newcommand{\quickwordcount}[1]{%
+\input{#1-words.sum}%
+}
+
+\begin{document}
+\linespread{1.5}
+\begin{titlepage}
+    \begin{center}
+        \vspace*{4cm}
+            
+        \Huge
+        \textbf{Logistic model follows the pattern of bacterial growth better than mechanistic models}
+            
+        \vspace{0.5cm}
+        \Large
+            
+        \vspace{1.5cm}
+            
+        \textbf{Agnes Szwarczynska}
+        
+        \textbf{aas122@ic.ac.uk}
+
+        word count: \quickwordcount{MiniProject_Latex} 
+            
+        \vspace{5cm}
+            
+        \Large
+        MSc Computational Methods in Ecology and Evolution\\
+        Department of Life Sciences\\
+        Imperial College London\\
+        Dec 4 2022
+            
+    \end{center}
+\end{titlepage}
+
+\begin{abstract}
+Population growth is a central concept to population ecology – understanding factors that shape it allows us to successfully predict changes in the number of individuals over time. This knowledge can be later applied in biotechnology and food industry. A key approach used for investigating trends in population dynamics is model fitting. The purpose of this analysis was to determine whether a non-linear, mechanistic logistic model fit data better than linear, phenomenological models in the context of the development of food-spoilage bacterial colonies. It has been conducted in the RStudio using the non-linear Least-squares framework. My hypothesis was that the logistic model outperforms cubic and quadratic ones. In the overall comparison, I used AICc values as a model success. The assumption was confirmed as logistic model turned out to be the most successful in 61\% of cases, whereas cubic and quadratic models provided the best fit in 23\% and 16\% of the instances, respectively. This suggests that mechanistic models constitute a valuable tool in predicting bacterial growth in experimental settings that conveys message about underlying biological process.
+\end{abstract}
+
+\section{Introduction}
+
+Population growth is a central concept in population ecology that aims to describe patterns associated with changes in the number of individuals over time and space (\cite{krebs1985ecology}). According to the Malthusian law, all populations have a propensity to grow exponentially when the available resources are unlimited (\cite{krebs1985ecology}). However, in nature resources are scarce and thus the growth curve will eventually reach a plateau or even start declining. This phenomenon is often a result of scramble competition in which most individuals are equally affected by the shortage of, e.g. food (\cite{krebs1985ecology}).\par 
+
+Researchers point out that understanding factors shaping population growth is essential for predicting population dynamics and recognizing environmental stressors (\cite{sibly2002population}). Knowledge about mechanisms underlying interactions within or between species can used, e.g in conservation biology, pest control or biotechnology.\par
+
+Most of the data used in this analysis had been obtained during experiments investigating bacterial growth in the context of best food storage methods. Results from such studies could be therefore applied during the food production process, especially meat or dairy products. In the broader context, understanding bacterial population dynamics can be crucial when assessing risks of disease transmissions or carbon fluxes, considering that bacteria constitute around 15\% of the global biomass (\cite{bar2018biomass}).\par
+
+In a batch culture, development of bacterial colony usually follows four distinct stages (\cite{peleg2011microbial}). It starts with a lag phase, during which bacteria synthesise molecules needed for the replication process and increase their size but not in number. After a short delay period bacteria start to divide and grow exponentially. When available nutrients are depleted, prokaryotes enter the stationary phase in which replication is halted. Eventually bacteria reach death stage and their growth curve start to decline. \par
+
+A key approach used for predicting a life curve of a bacterial colony is model fitting. One of its main challenges is to find balance between the precision, reality and generality of the mathematical representation of the biological system under investigation (\cite{levins1966strategy}). Another one is to choose the right type of model, i.e. whether to apply a phenomenological or mechanistic model, a deterministic or stochastic one. The first type of models is based on the assumption that there is an underlying theoretical basis, and thus they aim to explain a biological process (\cite{peleg2011microbial}). In the case of phenomenological (empirical) models, generated pattern is non-random and statistically significant, but does not convey any biological message(\cite{peleg2011microbial}).\par
+
+In the case of food production, only first three bacterial life stages are of a key importance since foods become unsafe for consumption before majority of cells start to decline in number (\cite{peleg2011microbial}). Therefore, most frequently used models in this area of research are empirical algebraic expressions and multiple variants of the continuous logistic equation (\cite{peleg2011microbial}). Often employed Gompertz model, adapted for the bacterial growth context, belongs to the second group and accounts for the initial lag phase, carrying capacity and maximum growth rate (\cite{buchanan1997simple}. Logistic model that focuses solely on the exponential and stationary phases and had been established based on the experimental work of Gause and Pearl and was initially hailed as the "universal law of population growth" (\cite{krebs1985ecology})\par
+
+This analysis aimed to determine whether mechanistic models outperform phenomenological ones in the context of bacterial growth in various experimental settings. I looked specifically at linear quadratic, cubic and non-linear logistic models. In the case of analyzed data, the first two models were power functions of time, whereas the latter one accounted for the initial population size, maximum growth rate and carrying capacity linked to the concept of density-dependent growth. I hypothesised that the logistic model would fit data better than cubic or quadratic one. The $H_{0}$ was that there is no difference in performance or that phenomenological models reflect the shape of data better than the logistic one.
+
+    \section{Materials \& Methods}
+    
+\subsection{Computing tools}
+    
+The project has been delivered predominantly using the R language. The advantage of this language include a  dedicated graphical interface (RStudio) that allows users to quickly visualise wide range of data and access stored variables in the "environment" panel (\cite{RStudio}). Additionally, R offers many packages that were designed specifically for the statistical analysis. There is also a vast online community that provides extensive support.\par
+In the future, it would be beneficial to consider conducting part of the analysis using Python because it offers many ways of code optimization, including numpy arrays or list comprehensions. 
+The initial write-up has been done in \href{https://www.overleaf.com}{Overleaf} since it provides a very good graphical interface, basic spell-check tool and allows users to quickly compile their documents. The final LaTeX document has been compiled using bash script that was also used to run the main script. The main advantage of this preparation system is that enables researchers to create neat-looking scientific documents. Additionally, thanks to the application of Latex and bash language this report has been created in a fully reproducible way and can be reconstructed independently on the operating system after accounting for the correct file paths.\par
+For my analysis, I used the following R packages:
+
+\begin{itemize}
+    \item \textbf{library(tidyverse)}: useful for data wrangling, visualisation and analysis; contains other packages, such as ggplot2 or dplyr
+    \item \textbf{library(minpack.lm)}: required to call the nlsLM function that incorporates the the Levenberg-Marquardt fitting algorithm
+    \item \textbf{library(reshape2)}: useful for data manipulation; includes functions such as melt(), which was necessary for plotting the violin plots that require long data format
+    \item \textbf{library(beepr)}: contains the beep() function, which notifies the user once the analysis and plotting has been finished; it may be helpful when running the script in the background
+\end{itemize}
+
+\subsection{Workflow}
+
+Despite the number of available in-built functions, I decided to write three custom functions - cal\_res(), cal\_RSq() and cal\_AICc - to have control over values that are used to calculate residuals, $R^{2}$ and AICc values. It was important since all the data points have been plotted on the log-transformed y-axis. The operation decreases the deviation of residuals from normality, which is especially important in the case of data sets containing pseudo-replicated data. Additionally, the equation used for calculating AICc accounted for the small sample size: 
+\begin{equation} 
+AICc = n + 2 + nlog\frac{2\pi}{n} + nlog(RSS) + 2p\frac{n}{n-p-1}\end{equation} 
+In my report, I focused on fitting three models, all of which have been log-transformed and plotted on the log-transformed y axis:
+\begin{itemize}
+    \item \textbf{quadratic model}: linear, deterministic, phenomenological model: $N_{t}=aTime^{2}+bTime+c$
+    \item \textbf{cubic model}: linear, deterministic, phenomenological model: $N_{t}=aTime^{3}+bTime^{2}+cTime+d$
+    \item \textbf{logistic model}: non-linear, deterministic, mechanistic model:\begin{equation} 
+    N_{t}=\frac{ N_{0}K e^{rt}}{K + N_{0}(e^{rt}-1)}
+    \end{equation} 
+\end{itemize}
+
+For the logistic model all initial parameters have been set with 0 as their lower boundary. The biological explanation behind this is that we expect all populations to grow over time $(r_{max} > 0, K>0)$ and it is impossible to have negative values of a initial population $(N_{0}>0)$. Additionally, logistic model takes logarithmic values of K and $N_{0}$ - feeding negative values into this function would result in mathematical error. The disadvantage of this approach is that it may result in the fitting algorithm "getting stuck" in a local optimum and preventing it from finding the best parameters if they were proceeded by a negative value.\par
+
+The initial parameters for all models were as followed: $N_{0}=min(PopBio)$, $K=max(PopBio)$, $r_{max}=0.001$, where $N_{0}$ is the initial population described as the cell count or optical density, $r_{max}$ is the maximum growth rate, K is the carrying capacity, which is the maximum vale of N in given conditions. For non-linear model fitting I used the Non-linear Least-squares framework and employed the Levenberg-Marquardt algorithm, which is more robust than the Gauss-Newton approach (\cite{motulsky2004fitting}).\par
+
+\subsection{Data wrangling, analysis and plotting}
+
+The main data set used for analysis consisted of multiple sets of data that come from laboratory experiments investigating bacterial growth in various environmental conditions, including different medium types and temperatures. Initially, I subset all the negative population values from the data set as they constituted less than 1\% of the data. Using the unique combinations of bacterial species and growth conditions, I created an \emph{ID} column along with the \emph{LogPopBio} column storing natural logarithm values of the population count/optical density measurements. Before starting the for loop, I set seed to 123 to provide reproducible outcomes.
+
+For all models, I have examined the distribution of their residuals performing the Shapiro-Wilk test that is suitable for small sample sizes (\cite{mishra2019descriptive}). In the comparison stage, I constructed a table with all AICc values and respective model names and checked which model "won" in the case of each sub-data set. Based on that, I produced a pie chart to show which model was best at reflecting the real-life data most frequently. I also created a modified violin plot, with median an mean plotted, to present the distribution of AICc values for the quadratic, cubic and logistic model. 
+
+For plotting, I rejected experiments with sample sizes smaller than seven to avoid receiving extreme (- or + Inf) AICc values and to make sure that the number of parameters at any stage of the analysis was sufficiently smaller than the number of data points. This operation reduced the total number of unique sets to 244.
+Models were plotted against the original data by generating series of predicted data points to produce smooth lines independently from a sample size.
+
+    \section{Results}
+    
+From all 244 models only three logistic curves have failed, i.e. they were characterised by some of the highest AICc values as well as negative $R^{2}$ (the only negative $R^{2}$ values in the entire output table) - their ID were therefore stored in a separate list. However, they still have been plotted and can be accessed from the \textit{results} folder (ID = 195, 179, 151). I also decided to consider them in the final analysis.\par 
+
+In the overall comparison of models, I used the AICc values of the quadratic, cubic ad logistic model for each unique ID to decide which one had the best performance. The logistic model model had the lowest AICc values in 149 cases, cubic model performed best in 56 cases, and quadratic fit turned out to reflect the real-life data well in 39 cases.
+
+\subsection{Model fitting}
+
+ \begin{figure}[!ht]
+  \subfloat[an example of well-fitted models that reflect the real-life data]{
+	\begin{minipage}[c][1\width]{
+	   0.48\textwidth}
+	   \centering
+	   \includegraphics[scale=0.47]{../data/good_model.pdf}
+	\end{minipage}}
+ \hfill 	
+  \subfloat[an example of poorly-fitted models that fail to account for the complexity of the pattern in original data]{
+	\begin{minipage}[c][1\width]{
+	   0.48\textwidth}
+	   \centering
+	   \includegraphics[scale=0.47]{../data/bad_model.pdf}
+	\end{minipage}}
+\caption{The comparison of well- and poorly-fitted models. Plot \textit{a} depicts growth curve of  \textit{Acinetobacter clacoaceticus} on TSB medium in 5$^{\circ}$ C. Plot \textit{b} illustrates development of the same colony in 15$^{\circ}$ C.}
+\end{figure}
+
+Quadratic, cubic and logistic model performed best when the original data followed the shape of the type II functional response curve (Fig.1a). However, when there was a visible lag phase, only cubic model managed to account for that. Linear models were also more robust when the quality of data was questionable and presented atypical patterns, e.g. convex curve. When bacteria were observed long enough for their population to start declining after reaching temporary plateau or their initial growth was very abrupt, all models failed to fully reflect this pattern (Fig.1b).\par
+
+\subsection{Model performance}
+
+\begin{figure}[!ht]
+\centering
+\begin{minipage}{.5\textwidth}
+    \centering
+    \includegraphics[scale=0.45]{../data/pie_chart.pdf}
+    \caption{The overall comparison of model performance.}
+    %\label{fig:Prob1:MEA}
+    %\captionof{figure}{A figure}
+    \label{fig.test1}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+    \centering
+    \includegraphics[scale=0.45]{../data/violin_plot.pdf}
+    \caption{The distribution of AICc values around their median (straight line) and mean (dot) in each model.}
+    \label{fig:test2}
+\end{minipage}
+\end{figure}
+
+Overall, logistic model turned out to be the best fit in 61\% of cases, cubic model - in 23\% of cases, and quadratic model - 16\% of cases(Fig.2). The same hierarchy can be observed in the distribution of the AICc values - respective mean AICc values were as followed: 13.55, 21.97, 28.11 (Fig.3). After visually assessing the distribution of residuals and homogeneity of variance, I performed ANOVA test ($F_{2,729}, p < 0.001$) that confirmed that there is an overall difference in mean AICc values.
+
+\section{Discussion}
+    
+The aim of this report was to compare performance of three types of deterministic models when fitted against bacterial growth data. The data set contained multiple growth curves the shape of which was affected by the unique combination of environmental conditions - interaction between the bacterial strain, medium type and temperature. The majority of subsets came from experiments investigating best food storage methods. My $H_{1}$ was that the logistic model provides the best fit, whereas the $H_{0}$ stated that there is no difference in performance among models or that phenomenological models outperform the logistic one. \par 
+
+While determining the most accurate model, I used the AICc values, which account for the small sample size  and complexity of a model (\cite{johnson2004model}). The advantage of this approach is that it allows us to easily compare more than two models, which do not have to be nested as it is in the case of F testing (\cite{motulsky2004fitting}).However, it is important to note that for each model $\sim$15\% of residuals were not normally distributed ($p < 0.05$), and therefore the results should be treated with caution.\par
+
+The analysis showed that the logistic model significantly outperformed the quadratic and cubic models, providing the best fit in 61\% of cases (Fig.2). Additionally, all models turned out to be most successful when data resembled the functional response type II curve. However, they failed at visualising certain biological trends in data, such as the lag phase or the decline stage in case of quadratic and logistic models (Fig.1). The ranking of model performance has been also reflected in the distribution of the respective AICc values, with logistic model having the lowest (best) mean AICc value (Fig.3). The difference between the mean of each group was $\sim$7 conventional units. According to the initial comparison (Fig.2) and the assumption that the difference of the magnitude of $\sim$ 2 units suggests high probability of one model outperforming the other (\cite{motulsky2004fitting}), I rejected the $H_{0}$.\par
+
+Logistic model for a long time had been considered to be the best fit for the population growth data. This assumption was based on experiments conducted by Gause and Pearl in the first half of XX century which showed that the S-shaped curved reflected the observed population dynamics (\cite{krebs1985ecology}). However, Sang argued that logistic model fails to account for the complexity of real-life data. He pointed out neglects in Pearl's experimental design, including the lack of precision in food rationing or challenges resulting from counting individuals with several life stages (\cite{krebs1985ecology}). In the context of bacterial growth, it also assumes a simplified picture of colony development, focusing solely on the exponential growth and stationary phase.\par
+
+In the further analysis, it would be worth including more mechanistic models, e.g.the Gompertz or Baranyi-Roberts model, which accounts for the presence of the initial lag phase (\cite{buchanan1997simple}). It would also be good to consider initial parameters sampling from uniform or Gaussian distribution to increase the chance of fitting phenomenological models to data. In my analysis, I decided to set the $r_{max}$ to a fixed value of 0.001 as it provided the highest number of logistic models successfully fitted to the experimental data. The initial approach of finding the biggest difference in population number in any successive pair of time points resulted in $\sim$30\% of models failing.\par
+
+Exploring biological phenomena that are responsible for the variation in shapes of the curves, such as the growth medium and temperature could also lead to interesting conclusions. Decreasing the variation of environmental conditions would result in sacrificing generality to precision and reality (\cite{levins1966strategy}), but would allow us to better predict trends for bacterial growth on specific food products. This knowledge could find application in biotechnology to increase efficiency of food production. On the other hand, incorporating stochasticity would increase reality and generality on the expense of precision (\cite{levins1966strategy}), shifting the focus to the broader concept of population growth and providing more universal tool, e.g for conservation biologists (\cite{manlik2022stochastic}.\par
+
+Nevertheless, what unifies many of the biological sub-disciplines is that model fitting remains a key approach used for predicting trends in population growth, which is a central concept in population ecology. Since the reproduction of organisms is constrained by the availability of resources, understanding major environmental stressors allows us to pick relevant parameters. Therefore, mechanistic models constitute a valuable tool for describing patterns in bacterial populations dynamics in the experimental settings and enable us to draw valuable conclusions about underlying processes.
+
+\bibliographystyle{apalike}
+\bibliography{MiniProjectBib}
+
+\end{document}
