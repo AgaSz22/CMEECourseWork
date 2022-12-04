@@ -12,7 +12,7 @@ rm(list=ls())
 library(tidyverse)
 library(minpack.lm)
 library(reshape2)
-library(beepr)
+require(beepr)
 
 ######### Data wrangling and manipulation ######### 
 
@@ -365,6 +365,10 @@ print(g)
 
 dev.off()
 
+######## Sourcing other plotting scripts ######## 
+source("MiniProject_good_model.R")
+source("MiniProject_bad_model.R")
+
 ######### Make a sound when done #########
 beep(sound = 6, expr = NULL)
 
@@ -373,7 +377,3 @@ beep(sound = 6, expr = NULL)
 # hist(all_values, breaks = 100)
 # anova_outcome <- aov(AICc_value ~ Model_type, data = data_violin) ###performing ANOVA
 # summary(anova_outcome)
-
-######## Sourcing other plotting scripts ######## 
-source("MiniProject_good_model.R")
-source("MiniProject_bad_model.R")
