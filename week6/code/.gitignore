@@ -1,0 +1,8 @@
+# Ignoring unnecessary files
+
+*.tmp
+*.log
+*.pdf
+*.Rmd
+/__pycache__
+.Rhistory
