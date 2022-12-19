@@ -1,5 +1,7 @@
+## README file for week7
+
 ### Brief description: 
-This folder contains files from week 7
+This folder contains all files from week 7.
 
 ### Languages: 
 Python 3.10.6, R 4.1.2, bash

@@ -1,3 +1,5 @@
+## README file for week3
+
 ### Description: 
 This folder contains all files from week 3 including groupwork files.
 
