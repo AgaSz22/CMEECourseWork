@@ -1,0 +1,83 @@
+R is about to run
+
+R version 4.2.0 (2022-04-22) -- "Vigorous Calisthenics"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-conda-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> # CMEE 2022 HPC exercises R code pro forma
+> # For neutral model cluster run
+> 
+> 
+> # Clear workspace and turn off graphics
+> rm(list=ls()) 
+> #graphics.off() 
+> dev.off
+function (which = dev.cur()) 
+{
+    if (which == 1) 
+        stop("cannot shut down device 1 (the null device)")
+    .External(C_devoff, as.integer(which))
+    dev.cur()
+}
+<bytecode: 0x41904d8>
+<environment: namespace:grDevices>
+> 
+> # Source the function file we need
+> source("/rds/general/user/aas122/home/HPC_input/aas122_HPC_2022_main.R")
+> #source("aas122_HPC_2022_main.R")
+> 
+> #iter <- 165 ### local testing
+> iter <- as.numeric(Sys.getenv("PBS_ARRAY_INDEX")) ### cluster testing
+> set.seed(iter)
+> 
+> if (iter  %% 4 == 0){
++   size = 500
++ } else if (iter %% 4 == 1){
++   size = 1000
++ } else if (iter %% 4 == 2){
++   size = 2500
++ } else {
++   size = 5000 }
+> 
+> neutral_cluster_run(0.27,
++                     size,
++                     wall_time = 690,
++                     1, 
++                     size/10, 
++                     8*size, 
++                     output_file_name = paste("output_",iter,".rda",sep=""))
+[1] 0
+> 
+> print(paste("output_",iter,".rda",sep=""))
+[1] "output_41.rda"
+> 
+> rm(size,iter)
+> 
+> 
+>   
+> 
+R has finished running
+
+============================================
+
+        Job resource usage summary 
+
+                 Memory (GB)    NCPUs
+ Requested  :         1             1
+ Used       :         0 (peak)   0.98 (ave)
+
+============================================
