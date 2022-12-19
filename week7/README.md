@@ -30,13 +30,13 @@ Python 3.10.6, R 4.1.2, bash
 7) profilemy2.py - testing profiling
 8) timeitme.py - quick profiling with timeit module
 
-data folder:
+**data folder**:
 1) NagyEtAl1999.csv - an input file
 
-results:
+**results folder**:
 an empty folder that will be populated after running the above scripts
 
-sandbox:
+**sandbox folder**:
 contains practice files that can be ignored
 
 ### Contact: 
