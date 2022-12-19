@@ -1,7 +1,7 @@
 *~ 
 *.tmp
-*.jpg
-*.png
+#*.jpg
+#*.png
 *.aux
 *.bbl
 *.log
@@ -13,3 +13,8 @@
 __pycache__/
 *.py[cod]
 *$py.class
+
+#R
+.Rhistory
+
+*.ipynb_checkpoints
