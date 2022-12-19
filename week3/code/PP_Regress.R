@@ -1,12 +1,13 @@
 #!usr/bin/env Rscript
 
+library(plyr)
 library(ggplot2)
 library(dplyr)
 library(broom)
 library(tibble)
 library(tidyr)
 library(purrr)
-library(plyr)
+
 
 # load the data
 predators <- as.data.frame(read.csv("../data/EcolArchives-E089-51-D1.csv"))
