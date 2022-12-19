@@ -1,8 +1,6 @@
-#install the sqlite package
-#install.packages('sqldf')
 
 # To load the packages
-library(sqldf)
+require(sqldf)
 
 # The command below opens a connection to the database.
 #If the database does not yet exist, one is created in the working directory of R.
