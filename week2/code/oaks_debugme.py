@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 11th Oct 2022
+Description: Getting familiar with doctests
+"""
+
 import csv
 import sys
 import doctest
@@ -26,6 +34,7 @@ def is_an_oak(name):
 
 #Checking whether the dataset contains any oak species (species are given in latin)
 def main(argv): 
+    """Main entry point of the programme"""
     f = open('../data/TestOaksData.csv','r')
     g = open('../results/JustOaksData.csv','w')
     taxa = csv.reader(f)

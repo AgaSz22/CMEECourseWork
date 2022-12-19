@@ -1,3 +1,12 @@
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 15th Oct 2022
+Description: Exploring list comprehensions 
+"""
+
+
 birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
           ('Delichon urbica','House martin',19),
           ('Junco phaeonotus','Yellow-eyed junco',19.5),

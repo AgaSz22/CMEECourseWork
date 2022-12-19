@@ -52,11 +52,13 @@ def find_all_primes(x=22):
         print(f"There are {len(allprimes)} primes between 2 and {x}")
     return allprimes
 
-def names(x="Agnes"):    #playing with yet another function
+def names(x="Agnes"):
+    """Just printing my name""" #playing with yet another function
     print(x)
     return(f"My name is {x}")
 
 def main(argv):
+    """Main function"""
     print(even_or_odd(22))
     print(even_or_odd(33))
     print(largest_divisor_five(120))
@@ -68,6 +70,6 @@ def main(argv):
     return 0
 
 if __name__ == "__main__":
-    """Makes sure the "main function is called from command line"""
+    """Makes sure the main function is called from command line"""
     status = main(sys.argv)
     sys.exit(status)

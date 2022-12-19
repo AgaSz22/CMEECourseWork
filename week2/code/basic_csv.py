@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 17th Oct 2022
+Description: Getting familiar with reading files
+"""
+
 import csv
 
 # Read a file containing:

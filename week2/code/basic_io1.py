@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 10th Oct 2022
+Description: Getting familiar with opening and saving files
+"""
+
 #############################
 # FILE INPUT
 #############################

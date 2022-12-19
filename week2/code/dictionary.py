@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 11th Oct 2022
+Description: Getting familiar with dictionaries
+"""
+
 from pprint import pprint
 
 taxa = [ ('Myotis lucifugus','Chiroptera'),

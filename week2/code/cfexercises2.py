@@ -1,7 +1,14 @@
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 17th Oct 2022
+Description: Getting familiar with functions
+"""
+
 #Playing with a couple of functions and list comprehensions
 #Checking whether x can be divided by 3 without the remainder
 
 def hello_1(x):
+    """a simple function that prints 'hello'- sometimes"""
     for j in range(x):
         if j % 3 ==0:
             print("hello")
@@ -12,6 +19,7 @@ hello_1(12)
 #Checking whether x can be divided by 5 & 4 without the remainder
 
 def hello_2(x):
+    """a simple function that prints 'hello'- sometimes"""
     for j in range(x):
         if j % 5 == 3:
             print("hello")
@@ -23,6 +31,7 @@ hello_2(12)
 
 #
 def hello_3(x,y):
+    """a simple function that prints 'hello'- sometimes"""
     for i in range(x,y):
         print("hello")
     print("")
@@ -31,6 +40,7 @@ hello_3(3,17)
 
 #
 def hello_4(x):
+    """a simple function that prints 'hello'- sometimes"""
     while x != 15:
         print("hello")
         x = x + 3
@@ -40,6 +50,7 @@ hello_4(0)
 
 #
 def hello_5(x):
+    """a simple function that prints 'hello'- sometimes"""
     while x < 100:
         if x == 31:
             for k in range(7):
@@ -50,9 +61,11 @@ def hello_5(x):
     print("")
 
 hello_5(19)
+"""a simple function that prints 'hello'- sometimes"""
 
 #WHILE loop with BREAK
 def hello_6(x,y):
+    """a simple function that prints 'hello'- sometimes"""
     while x: #while x is True
         print("hello! " + str(y))
         y += 1
@@ -86,7 +99,7 @@ print(x)
 #
 x = ["LIST","COMPREHENSIONS","ARE","COOL"]
 x_new = []
-for i in x: #implict
+for i in x: #implicit
     x_new.append(i.lower())
 print(x_new)
 

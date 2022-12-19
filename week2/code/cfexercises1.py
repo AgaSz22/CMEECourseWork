@@ -15,16 +15,19 @@ from tempfile import tempdir
 #A couple of functions
 
 def foo_1(x):
+    """multiplication"""
     return x ** 0.5
 
 
 def foo_2(x,y):
+    """checking whether x is bigger than y"""
     if x>y:
         return x
     return y
 
 
 def foo_3(x,y,z):    #printing x,y,z in ascending order
+    """printing in ascending order"""
     if x > y:
         tmp = y
         y = x
@@ -36,6 +39,7 @@ def foo_3(x,y,z):    #printing x,y,z in ascending order
 
 
 def foo_4(x):      #calculates factorial of x
+    """calculates factorial of x"""
     result = 1
     for i in range(1, x+1):
         result = result * i
@@ -44,6 +48,7 @@ def foo_4(x):      #calculates factorial of x
 
 
 def foo_5(x): ## a recursive function that calculates the factorial of x
+    """calculates the factorial of x"""
     if x ==1:
         return 1
     if x ==0:
@@ -52,6 +57,7 @@ def foo_5(x): ## a recursive function that calculates the factorial of x
 
 
 def foo_6(x): # Calculate the factorial of x in a different way; no if statement involved
+    """calculates the factorial of x"""
     facto = 1
     if x==0:
         return 1

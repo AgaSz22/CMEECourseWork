@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Programm that aligns two DNA sequences and """
+"""Programm that aligns two DNA sequences and print the best score"""
 
 __appname__ = 'DNA algorithm'
 __author__ = 'Agnes Szwarczynska(aas122@ic.ac.uk)'
@@ -17,6 +17,7 @@ import csv
 # from arbitrary startpoint (chosen by user)
 
 def calculate_score(s1, s2, l1, l2, startpoint):
+    """Calculating scores - matching nucleotides"""
     matched = "" # to hold string displaying alignements
     score = 0
     for i in range(l2):
@@ -37,6 +38,7 @@ def calculate_score(s1, s2, l1, l2, startpoint):
     return score
 
 def main(argv):
+    """Main entry point of the programme"""
     f = open("../data/seq.csv", "r")
     sequences_input = csv.reader(f)
     for line in sequences_input:

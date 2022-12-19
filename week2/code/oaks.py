@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 15th Oct 2022
+Description: Searching for oaks species
+"""
+
 ## Finds just those taxa that are oak trees from a list of species
 
 taxa = [ 'Quercus robur',
@@ -8,6 +16,8 @@ taxa = [ 'Quercus robur',
        ]
 
 def is_an_oak(name):
+    """main entry point of the programme
+    """
     return name.lower().startswith('quercus ')
 
 ##Using for loops

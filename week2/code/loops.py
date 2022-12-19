@@ -1,3 +1,12 @@
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 11th Oct 2022
+Description: Getting familiar with for loops and functions
+"""
+
+
 # FOR loops
 for i in range(5):
     print(i)
@@ -37,6 +46,7 @@ while z < 100:
 # Functions
 
 def foo(x):
+    """multiplication by x"""
     x *= x
     print(x)
     return x
@@ -47,6 +57,7 @@ y
 type(y)
 
 def function(x):
+    """multiplication by 2"""
     x = 2*x
     print (x)
     #return x

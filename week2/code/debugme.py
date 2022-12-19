@@ -1,6 +1,15 @@
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 11th Oct 2022
+Description: Getting familiar with debugging
+"""
+
 #Learning how debugging works
 
 def buggyfunc(x):
+    """a function that needs debugging"""
     y = x
     for i in range(x):
         y = y-1

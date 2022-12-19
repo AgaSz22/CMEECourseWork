@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-# Filename: using_name.py
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 16th Oct 2022
+Description: Getting familiar with modules
+"""
 
 if __name__ == '__main__':
     print('This program is being run by itself!')

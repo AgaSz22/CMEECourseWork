@@ -1,3 +1,12 @@
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 10 th Oct 2022
+Description: Getting familiar with dictionaries
+"""
+
+
 #############################
 # STORING OBJECTS
 #############################
