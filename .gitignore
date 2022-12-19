@@ -6,8 +6,8 @@
 *.bbl
 *.log
 *.blg
-.csv
-.pdf
+#*.csv
+#*.pdf
 
 #Python
 __pycache__/
