@@ -67,5 +67,5 @@ R version 4.2.2, LaTeX (LaTeX2ε), bash
 
 **results folder** - an empty folder that will be populated after running the above scripts
 
-## Contact: 
+### Contact: 
 Agnes Szwarczynska; aas122@ic.ac.uk
