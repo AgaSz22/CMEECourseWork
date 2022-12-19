@@ -1,18 +1,26 @@
-# README file for week1
+## README file for week2
 
-## Brief description: 
-This folder conatins a set of scripts that were created to practise creating loops, lists comprehensions and Python programmes. 
+### Brief description: 
+This folder contains a set of scripts that were created to practise creating loops, lists comprehensions and Python programmes. 
 
-## Languages: 
-Python
+### Languages: 
+Python3, Jupyter Notebook 5.0
 
-## Dependencies: -
+### Dependencies: 
 
-## Installation: -
+ + doctest
+ + tempfile
+ + os
+ + sys
+ + csv
+ + struct
+ + pprint
 
-## Project structure and Usage: 
+### Installation: -
 
-### week1 code folder contains following files:
+### Project structure and Usage: 
+
+#### week2 code folder contains following files:
 1) lc1.py - list comprehensions and loops (species)
 2) lc2.py - list comprehensions and loops (months and rainfall values)
 3) dictionary.py - dictionary (species names classified according to their order)
@@ -35,10 +43,15 @@ Python
 20) debugme.py - learning how debugging works
 21) align_seqs.py - programme that compares two DNA sequences 
 22) oaks_debugme.py - searching for oka species in a give list
+23) align_seq_fasta.py - Script to align two sequences after taking an input from user. It outputs one one best alignment in .csv format. If no input is provided it will run with defaults.
+24) align_seq_better.py - Script to align two sequences after taking an input from user. It saves all the best alignments in binary format. If no input is provided the script will run with default arguements.
+25) oaks_debugme_groupwork.py - This script checks whether the TestOaksData.csv input file contains a header, prints tree species and saves only the oak species.
 
-data folder - contains input files
+**data folder** - contains input files
 
-sandbox - contains practice files that can be ignored
+**results folder** - an empty folder that will be populated after runnig the above scripts
 
-## Contact: 
+**sandbox folder** - contains practice files that can be ignored
+
+### Contact: 
 Agnes Szwarczynska; aas122@ic.ac.uk
