@@ -1,7 +1,7 @@
 #!usr/bin/env Rscript
 
 ###libraries
-library("ggpubr")
+require("ggpubr")
 library("ggplot2")
 
 

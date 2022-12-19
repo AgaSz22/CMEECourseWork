@@ -3,7 +3,7 @@ rm(list = ls())
 
 ###Loading libraries
 library(ggplot2)
-library(ggpubr)
+require(ggpubr)
 library(dplyr)
 
 
