@@ -1,0 +1,102 @@
+Starting code feedback for Agnieszka, Week5
+
+Current Points = 100
+
+Note that: 
+(1) Major sections begin with a double "====" line 
+(2) Subsections begin with a single "====" line 
+(3) Code output or text file content are printed within single "*****" lines 
+
+======================================================================
+======================================================================
+Your Git repo size this week is about 453.98 MiB on disk 
+
+PART 1: Checking project workflow...
+
+Found the following directories in parent directory: .git, aas122, MiniProject, week6, week7, week3, week2, Feedback, week1
+
+Found the following files in parent directory: README.md, .gitignore
+
+Checking for key files in parent directory...
+
+Found .gitignore in parent directory, great! 
+
+Printing contents of .gitignore:
+
+**********************************************************************
+*~ 
+*.tmp
+#*.jpg
+#*.png
+*.aux
+*.bbl
+*.log
+*.blg
+#*.csv
+#*.pdf
+
+#Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+#R
+.Rhistory
+
+*.ipynb_checkpoints
+
+**********************************************************************
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+## README file for my CMEE Coursework Repository
+
+### Brief description: 
+CMEECourseWork directory stores a set of folders contating weekly assignments and groupwork files that have been created across first 9 weeks of the course. For more detailed description go to README files in respective weekly folders. The content of this file will be continuously updated.
+
+### Languages: 
+bash, Unix shell, Python3, R version 4.2.2, LaTeX (LaTeX2ε), Jupyter Notebook version 5.0 
+
+### Dependencies: 
+Dependencies have been listed in weekly folders.
+
+### Installation: -
+
+### Project structure and Usage: 
+1) **week1 folder** - stores code, data & results from 3rd to 9th Oct 2022.
+2) **week2 folder** - stores code, data & results from 10th to 16th Oct 2022.
+3) **week3 folder** - stores code, data & results from 17th to 23rd Oct 2022.
+4) **week6 folder** - probably should be a part of **week7 folder** but we enjoyed our time on CMEE course so much that we lost track of time.
+5) **week7 folder** - stores code, data & results from 14th to 20th Nov 2022.
+6) **MiniProject** - stores code, data & results for the model-fitting MiniProject from 21th Nov to 4th Dec 2022.
+6) **aas122** - stores code, data & results for the HPC practical from 5th Dec to 19th Dec 2022.
+7) **Feedback folder** - contains outputs of auto-marking scripts run externally.
+
+### Contact: 
+Agnes Szwarczynska; aas122@ic.ac.uk
+
+
+**********************************************************************
+
+======================================================================
+Looking for the weekly directories...
+
+Found 5 weekly directories: week1, week2, week3, week6, week7
+
+The Week5 directory will be assessed 
+
+======================================================================
+======================================================================
+PART 2: Checking weekly code and workflow...
+
+======================================================================
+======================================================================
+
+FINISHED WEEKLY ASSESSMENT
+
+Current Points for the Week = 100
+
+NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!

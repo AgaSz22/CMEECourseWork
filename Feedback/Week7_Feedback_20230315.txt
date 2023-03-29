@@ -1,0 +1,808 @@
+Starting code feedback for Agnieszka, Week7
+
+Current Points = 100
+
+Note that: 
+(1) Major sections begin with a double "====" line 
+(2) Subsections begin with a single "====" line 
+(3) Code output or text file content are printed within single "*****" lines 
+
+======================================================================
+======================================================================
+Your Git repo size this week is about 453.98 MiB on disk 
+
+PART 1: Checking project workflow...
+
+Found the following directories in parent directory: .git, aas122, MiniProject, week6, week7, week3, week2, Feedback, week1
+
+Found the following files in parent directory: README.md, .gitignore
+
+Checking for key files in parent directory...
+
+Found .gitignore in parent directory, great! 
+
+Printing contents of .gitignore:
+
+**********************************************************************
+*~ 
+*.tmp
+#*.jpg
+#*.png
+*.aux
+*.bbl
+*.log
+*.blg
+#*.csv
+#*.pdf
+
+#Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+#R
+.Rhistory
+
+*.ipynb_checkpoints
+
+**********************************************************************
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+## README file for my CMEE Coursework Repository
+
+### Brief description: 
+CMEECourseWork directory stores a set of folders contating weekly assignments and groupwork files that have been created across first 9 weeks of the course. For more detailed description go to README files in respective weekly folders. The content of this file will be continuously updated.
+
+### Languages: 
+bash, Unix shell, Python3, R version 4.2.2, LaTeX (LaTeX2ε), Jupyter Notebook version 5.0 
+
+### Dependencies: 
+Dependencies have been listed in weekly folders.
+
+### Installation: -
+
+### Project structure and Usage: 
+1) **week1 folder** - stores code, data & results from 3rd to 9th Oct 2022.
+2) **week2 folder** - stores code, data & results from 10th to 16th Oct 2022.
+3) **week3 folder** - stores code, data & results from 17th to 23rd Oct 2022.
+4) **week6 folder** - probably should be a part of **week7 folder** but we enjoyed our time on CMEE course so much that we lost track of time.
+5) **week7 folder** - stores code, data & results from 14th to 20th Nov 2022.
+6) **MiniProject** - stores code, data & results for the model-fitting MiniProject from 21th Nov to 4th Dec 2022.
+6) **aas122** - stores code, data & results for the HPC practical from 5th Dec to 19th Dec 2022.
+7) **Feedback folder** - contains outputs of auto-marking scripts run externally.
+
+### Contact: 
+Agnes Szwarczynska; aas122@ic.ac.uk
+
+
+**********************************************************************
+
+======================================================================
+Looking for the weekly directories...
+
+Found 5 weekly directories: week1, week2, week3, week6, week7
+
+The Week7 directory will be assessed 
+
+======================================================================
+======================================================================
+PART 2: Checking weekly code and workflow...
+
+======================================================================
+Assessing WEEK7...
+
+Found the following directories: code, sandbox, results, data
+
+Found the following files: README.md, .gitignore
+
+Checking for readme file in weekly directory...
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+## README file for week7
+
+### Brief description: 
+This folder contains all files from week 7.
+
+### Languages: 
+Python 3.10.6, R 4.1.2, bash
+
+### Dependencies: 
+
++ timeit
++ numpy 
++ scipy 
++ stats from scipy
++ integrate from scipy
++ matplotlib.pylab 
++ Profile from cProfile  
++ pstats
++ StringIO from io 
+
+### Installation: -
+
+### Project structure and Usage: 
+
+#### week7 code folder contains following files:
+1) fmr.R - an input file for run_fmr_R.py
+2) run_fmr_R.py - exploring subprocesses in Python
+3) LV1.py - visualising the Lotka-Voltera model
+4) LV2.py - The Lotka-Volterra model revisited
+5) LV1_LV2_comp.py - looking at and comparing the speed bottlenecks in LV1.py and LV2.py.
+6) profilemy.py - testing profiling
+7) profilemy2.py - testing profiling
+8) timeitme.py - quick profiling with timeit module
+
+**data folder**:
+1) NagyEtAl1999.csv - an input file
+
+**results folder**:
+an empty folder that will be populated after running the above scripts
+
+**sandbox folder**:
+contains practice files that can be ignored
+
+### Contact: 
+Agnes Szwarczynska; aas122@ic.ac.uk
+**********************************************************************
+
+Results directory is empty - good! 
+
+Found 8 code files: LV1_LV2_comp.py, LV1.py, LV2.py, profileme2.py, fmr.R, run_fmr_R.py, profileme.py, timeitme.py
+
+======================================================================
+Testing script/code files...
+
+======================================================================
+Inspecting script file LV1_LV2_comp.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 16th Nov 2022
+Description: Profiling LV1 and LV2 scripts
+"""
+
+__author__ = "Agnes Szwarczynska (ass122@ic.ac.uk)"
+__date__ = "16th Nov 2022"
+
+
+###Imports
+from cProfile import Profile
+import pstats
+from io import StringIO
+import LV2
+import LV1
+
+###Profiling LV2
+pr = Profile() #an object of class profile
+
+pr.enable()
+LV2.run([]) #running the LV2 script
+pr.disable()
+
+s = StringIO()
+ps = pstats.Stats(pr, stream=s)
+ps.print_stats([]).sort_stats("calls") 
+
+print("LV2:")
+print(f"{s.getvalue()}\n") #printing the output of LV2 profiling
+
+###Profiling LV1
+pr_2 = Profile() #an object of class profile
+
+pr_2.enable()
+LV1.run([]) #running the LV1 script
+pr_2.disable()
+
+s_2 = StringIO()
+ps_2 = pstats.Stats(pr, stream=s_2)
+ps_2.print_stats([]).sort_stats("calls")
+
+print("LV1:")
+print(f"{s_2.getvalue()}\n") #printing the output of LV1 profiling
+
+
+**********************************************************************
+
+Testing LV1_LV2_comp.py...
+
+LV1_LV2_comp.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Insufficient number of arguments provided. Running the script with default parametres
+The final prey density is 1.1110872794682356.
+The final predator density is 1.0493991869967765
+LV2:
+         457136 function calls (450534 primitive calls) in 0.641 seconds
+
+   Random listing order was used
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+       15    0.000    0.000    0.000    0.000 {method 'values' of 'collections.OrderedDict' objects}
+        2    0.000    0.000    0.0
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+
+======================================================================
+Inspecting script file LV1.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 16th Nov 2022
+Description: This module produces the Lotka-Voltera model using default parametres. 
+It also saves two output figures in the results folder.
+"""
+
+###Imports
+import numpy as np
+import scipy as sc
+from scipy import stats
+from scipy import integrate
+import matplotlib.pylab as p
+
+def run(argv):
+    """ This is the main entry point of the programme."""
+    ###Defining a function
+    def dCR_dt(pops, t =0):  
+
+        R = pops[0]
+        C = pops[1]
+        dRdt = r * R - a * R * C
+        dCdt = -z * C + e * a * R * C
+        
+        return np.array([dRdt, dCdt])
+
+    type(dCR_dt)
+
+    ###Assigning variables
+    r = 1.
+    a = 0.1 
+    z = 1.5
+    e = 0.75
+
+    ###Defining a time vector
+    t = np.linspace(0, 15, 1000)
+
+    ###Set the initial conditions for the two populations 
+    R0 = 10
+    C0 = 5
+    RC0 = np.array([R0, C0])
+
+    pops, infodict = integrate.odeint(dCR_dt, RC0, t, full_output=True)
+
+    #pops
+
+    ###Checking whether integration was successful
+    type(infodict)
+    infodict.keys()
+    infodict['message']
+
+    ###Plotting a figure
+    f1 = p.figure()
+
+    p.plot(t, pops[:,0], 'g-', label="Resource density") 
+    p.plot(t, pops[:,1], 'b-', label="Consumer density")
+    p.grid()
+    p.legend(loc="best")
+    p.xlabel("Time")
+    p.ylabel("Population")
+    p.title("Consumer-Resource population dynamics")
+    #p.show()
+
+    ###Saving the plot
+    f1.savefig("../results/LV1_model_1.pdf")
+
+    ###Plotting a figure
+    f2 = p.figure()
+
+    p.plot(pops[:,0], pops[:,1], 'r-') 
+    p.grid()
+    p.legend(loc="best")
+    p.xlabel("Resource density")
+    p.ylabel("Consumer density")
+    p.title("Consumer-Resource population dynamics")
+    #p.show()
+    
+    ###Saving the plot
+    f2.savefig("../results/LV1_model_2.pdf")
+
+if __name__ == "__main__":
+    import sys
+    run(sys.argv)
+**********************************************************************
+
+Testing LV1.py...
+
+LV1.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Missing docstring, either in one or functions and/or at the script level
+
+Current Points = 99.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+
+======================================================================
+Inspecting script file LV2.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 16th Nov 2022
+Description: Visualising Lotka-Voltera model with various parametres
+"""
+
+__author__ = "Agnes Szwarczynska (ass122@ic.ac.uk)"
+__date__ = "16th Nov 2022"
+
+
+###Imports
+import numpy as np
+import scipy as sc
+from scipy import stats
+from scipy import integrate
+import matplotlib.pylab as p
+import sys
+
+###
+
+def run(argv):
+    """This is the main entry point of the programme."""
+    ###Defining a function
+    def dCR_dt(pops, t =0): 
+        R = pops[0]
+        C = pops[1]
+        dRdt = r * R *(1 - R/K) - a * R * C
+        dCdt = -z * C + e * a * R * C
+        
+        return np.array([dRdt, dCdt])
+
+    type(dCR_dt)
+
+    ###Assigning variables
+
+    if len(sys.argv) != 6:
+        print("Insufficient number of arguments provided. Running the script with default parametres")
+        r = 1.0
+        a = 0.9 
+        z = 0.5
+        e = 0.5
+        K = 20
+        
+    else:
+        r = float(sys.argv[1])
+        a = float(sys.argv[2])
+        z = float(sys.argv[3])
+        e = float(sys.argv[4])
+        K = float(sys.argv[5])
+
+
+    ###Defining a time vector
+    t = np.linspace(0, 300, 4000)
+
+    ###Set the initial conditions for the two populations 
+    R0 = 1
+    C0 = 1
+    RC0 = np.array([R0, C0])
+
+    pops, infodict = integrate.odeint(dCR_dt, RC0, t, full_output=True)
+
+    #pops
+
+    ###Checking whether integration was successful
+    type(infodict)
+    infodict.keys()
+    infodict['message']
+
+    ###Plotting a figure
+    f1 = p.figure()
+
+    p.plot(t, pops[:,0], 'g-', label="Resource density") 
+    p.plot(t, pops[:,1], 'b-', label="Consumer density")
+    p.grid()
+    p.legend(loc="best")
+    p.xlabel("Time")
+    p.ylabel("Population")
+    p.title("Consumer-Resource population dynamics")
+    p.text(150, 1.15, f"\n r = {r}\n a = {a}\n z = {z}\n e = {e}\n K = {K}", fontsize=12)
+    #p.text(180, 6, f"K prey = {pops[-1][0]}", fontsize=12)
+    #p.show()
+
+    f2 = p.figure()
+
+    p.plot(pops[:,0], pops[:,1], 'r-') 
+    p.grid()
+    p.legend(loc="best")
+    p.xlabel("Resource density")
+    p.ylabel("Consumer density")
+    p.title("Consumer-Resource population dynamics")
+    p.text(1.2, 1, f"\n r = {r}\n a = {a}\n z = {z}\n e = {e}\n K = {K}", fontsize=12)
+    #p.show()
+
+    ###Saving the plot
+
+    f1.savefig("../results/LV2_model_1.pdf")
+    f2.savefig("../results/LV2_model_2.pdf")
+
+    #Printing final prey and predator densities
+    print(f"The final prey density is {pops[-1][0]}.\nThe final predator density is {pops[-1][1]}")
+
+    ###If the script is run by itself
+
+if __name__ == "__main__":
+    import sys
+    run(sys.argv)
+**********************************************************************
+
+Testing LV2.py...
+
+LV2.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Missing docstring, either in one or functions and/or at the script level
+
+Current Points = 99.0
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Insufficient number of arguments provided. Running the script with default parametres
+The final prey density is 1.1110872794682356.
+The final predator density is 1.0493991869967765
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+
+======================================================================
+Inspecting script file profileme2.py...
+
+File contents are:
+
+**********************************************************************
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 18th Nov 2022
+Description: An illustrative program, built on profileme.py, for testing profiling.
+"""
+
+def my_squares(iters):
+    """squaring"""
+    out = [i ** 2 for i in range(iters)]
+    return out
+
+def my_join(iters, string):
+    """joining"""
+    out = ""
+    for i in range(iters):
+        out += "," + string
+    return out
+
+def run_my_funcs(x,y):
+    """squaring and joining"""
+    print(x,y)
+    my_squares(x)
+    my_join(x,y)
+    return 0
+
+run_my_funcs(10000000, "My string")
+**********************************************************************
+
+Testing profileme2.py...
+
+profileme2.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 99.0
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+10000000 My string
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 3.27722s
+
+======================================================================
+Inspecting script file fmr.R...
+
+File contents are:
+
+**********************************************************************
+# Plots log(field metabolic rate) against log(body mass) for the Nagy et al 
+# 1999 dataset to a file fmr.pdf.
+
+cat("Reading CSV\n")
+
+nagy <- read.csv('../data/NagyEtAl1999.csv', stringsAsFactors = FALSE)
+
+cat("Creating graph\n")
+pdf('../results/fmr_plot.pdf', 11, 8.5)
+col <- c(Aves='purple3', Mammalia='red3', Reptilia='green3')
+plot(log10(nagy$M.g), log10(nagy$FMR.kJ.day.1), pch=19, col=col[nagy$Class], 
+     xlab=~log[10](M), ylab=~log[10](FMR))
+for(class in unique(nagy$Class)){
+    model <- lm(log10(FMR.kJ.day.1) ~ log10(M.g), data=nagy[nagy$Class==class,])
+    abline(model, col=col[class])
+}
+dev.off()
+
+cat("Finished in R!\n")
+
+**********************************************************************
+
+Testing fmr.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Reading CSV
+Creating graph
+null device 
+          1 
+Finished in R!
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.24168s
+
+======================================================================
+Inspecting script file run_fmr_R.py...
+
+File contents are:
+
+**********************************************************************
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date:18th Nov 2022
+Description: Using subprocess to run an R script
+"""
+
+###Imports
+import subprocess
+
+p = subprocess.Popen("Rscript --verbose fmr.R", shell=True).wait()
+
+if p == 0:
+    print("Script was run successfully. Enjoy your day!")
+else:
+    print("Oooops! Errors encountered")
+
+
+
+**********************************************************************
+
+Testing run_fmr_R.py...
+
+run_fmr_R.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 99.0
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Reading CSV
+Creating graph
+null device 
+          1 
+Finished in R!
+Script was run successfully. Enjoy your day!
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+running
+  '/usr/lib/R/bin/R --no-echo --no-restore --file=fmr.R'
+
+
+======================================================================
+Inspecting script file profileme.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 18th Nov 2022
+Description: An illustrative program for testing profiling.
+"""
+
+def my_squares(iters): 
+    """squaring"""  
+    out = []
+    for i in range(iters):
+        out.append(i ** 2)
+    return out
+
+def my_join(iters, string):
+    """joining"""
+    out = ""
+    for i in range(iters):
+        out += string.join(",")
+    return out
+
+
+def run_my_funcs(x,y):
+    """squaring and joining"""    
+    print(x,y)
+    my_squares(x)
+    my_join(x,y)
+    return 0
+
+
+run_my_funcs(10000000, "My string")
+**********************************************************************
+
+Testing profileme.py...
+
+profileme.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 99.0
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+10000000 My string
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 4.40512s
+
+======================================================================
+Inspecting script file timeitme.py...
+
+File contents are:
+
+**********************************************************************
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 18th Nov 2022
+Description: Exploring the timeit module.
+"""
+
+##############################################################################
+# loops vs. list comprehensions: which is faster?
+##############################################################################
+
+iters = 1000000
+
+import timeit
+
+from profileme import my_squares as my_squares_loops
+
+from profileme2 import my_squares as my_squares_lc
+
+##############################################################################
+# loops vs. the join method for strings: which is faster?
+##############################################################################
+
+mystring = "my string"
+
+from profileme import my_join as my_join_join
+
+from profileme2 import my_join as my_join
+
+**********************************************************************
+
+Testing timeitme.py...
+
+timeitme.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 99.0
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+10000000 My string
+10000000 My string
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 7.67671s
+
+======================================================================
+======================================================================
+Finished running scripts
+
+Ran into 4 errors
+
+======================================================================
+======================================================================
+
+FINISHED WEEKLY ASSESSMENT
+
+Current Points for the Week = 99.0
+
+NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!

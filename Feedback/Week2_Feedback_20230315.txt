@@ -1,0 +1,3526 @@
+Starting code feedback for Agnieszka, Week2
+
+Current Points = 100
+
+Note that: 
+(1) Major sections begin with a double "====" line 
+(2) Subsections begin with a single "====" line 
+(3) Code output or text file content are printed within single "*****" lines 
+
+======================================================================
+======================================================================
+Your Git repo size this week is about 453.98 MiB on disk 
+
+PART 1: Checking project workflow...
+
+Found the following directories in parent directory: .git, aas122, MiniProject, week6, week7, week3, week2, Feedback, week1
+
+Found the following files in parent directory: README.md, .gitignore
+
+Checking for key files in parent directory...
+
+Found .gitignore in parent directory, great! 
+
+Printing contents of .gitignore:
+
+**********************************************************************
+*~ 
+*.tmp
+#*.jpg
+#*.png
+*.aux
+*.bbl
+*.log
+*.blg
+#*.csv
+#*.pdf
+
+#Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+#R
+.Rhistory
+
+*.ipynb_checkpoints
+
+**********************************************************************
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+## README file for my CMEE Coursework Repository
+
+### Brief description: 
+CMEECourseWork directory stores a set of folders contating weekly assignments and groupwork files that have been created across first 9 weeks of the course. For more detailed description go to README files in respective weekly folders. The content of this file will be continuously updated.
+
+### Languages: 
+bash, Unix shell, Python3, R version 4.2.2, LaTeX (LaTeX2ε), Jupyter Notebook version 5.0 
+
+### Dependencies: 
+Dependencies have been listed in weekly folders.
+
+### Installation: -
+
+### Project structure and Usage: 
+1) **week1 folder** - stores code, data & results from 3rd to 9th Oct 2022.
+2) **week2 folder** - stores code, data & results from 10th to 16th Oct 2022.
+3) **week3 folder** - stores code, data & results from 17th to 23rd Oct 2022.
+4) **week6 folder** - probably should be a part of **week7 folder** but we enjoyed our time on CMEE course so much that we lost track of time.
+5) **week7 folder** - stores code, data & results from 14th to 20th Nov 2022.
+6) **MiniProject** - stores code, data & results for the model-fitting MiniProject from 21th Nov to 4th Dec 2022.
+6) **aas122** - stores code, data & results for the HPC practical from 5th Dec to 19th Dec 2022.
+7) **Feedback folder** - contains outputs of auto-marking scripts run externally.
+
+### Contact: 
+Agnes Szwarczynska; aas122@ic.ac.uk
+
+
+**********************************************************************
+
+======================================================================
+Looking for the weekly directories...
+
+Found 5 weekly directories: week1, week2, week3, week6, week7
+
+The Week2 directory will be assessed 
+
+======================================================================
+======================================================================
+PART 2: Checking weekly code and workflow...
+
+======================================================================
+Assessing WEEK2...
+
+Found the following directories: code, sandbox, results, data
+
+Found the following files: README.md, .gitignore
+
+Checking for readme file in weekly directory...
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+## README file for week2
+
+### Brief description: 
+This folder contains a set of scripts that were created to practise creating loops, lists comprehensions and Python programmes. 
+
+### Languages: 
+Python3, Jupyter Notebook 5.0
+
+### Dependencies: 
+
+ + doctest
+ + tempfile
+ + os
+ + sys
+ + csv
+ + struct
+ + pprint
+
+### Installation: -
+
+### Project structure and Usage: 
+
+#### week2 code folder contains following files:
+1) lc1.py - list comprehensions and loops (species)
+2) lc2.py - list comprehensions and loops (months and rainfall values)
+3) dictionary.py - dictionary (species names classified according to their order)
+4) tuples.py - tuples (birds species)
+5) loops.py - learning how loops work
+6) MyExampleScript.py - a very simple Python script
+7) cfexercises1.py - control flow exercises 1
+8) cfexercises2.py - exercising with functions and lists comprehensions
+9) oaks.py - loops and list comprehensions (oak species)
+10) scope.py - understanding the concept of the scope and global and loca variables
+11) basic_io1.py - opening and printing the content of the file
+12) basic_io2.py - creating an output file
+13) basic_io3.py - creating a simple dictionary
+14) basic_csv.py - manipulating CSV files
+15) boilerplate.py - a boilerplate file
+16) using_name.py - learning how modules work
+17) sysarg.py - learning about the file arguments
+18) control_flow.py - learning about programmes and functions
+19) test_control_flow.py - learning about the control flow
+20) debugme.py - learning how debugging works
+21) align_seqs.py - programme that compares two DNA sequences 
+22) oaks_debugme.py - searching for oka species in a give list
+23) align_seq_fasta.py - Script to align two sequences after taking an input from user. It outputs one one best alignment in .csv format. If no input is provided it will run with defaults.
+24) align_seq_better.py - Script to align two sequences after taking an input from user. It saves all the best alignments in binary format. If no input is provided the script will run with default arguements.
+25) oaks_debugme_groupwork.py - This script checks whether the TestOaksData.csv input file contains a header, prints tree species and saves only the oak species.
+
+**data folder** - contains input files
+
+**results folder** - an empty folder that will be populated after runnig the above scripts
+
+**sandbox folder** - contains practice files that can be ignored
+
+### Contact: 
+Agnes Szwarczynska; aas122@ic.ac.uk
+**********************************************************************
+
+Results directory is empty - good! 
+
+Found 26 code files: scope.py, align_seqs_better.ipynb, debugme.py, lc2.py, align_seqs_fasta.py, control_flow.py, loops.py, basic_io3.py, cfexercises1.py, oaks.py, align_seqs_better.py, align_seqs.py, using_name.py, dictionary.py, test_control_flow.py, oaks_debugme_groupwork.py, sysargv.py, tuple.py, cfexercises2.py, basic_io1.py, basic_io2.py, boilerplate.py, MyExampleScript.py, lc1.py, basic_csv.py, oaks_debugme.py
+
+======================================================================
+Testing script/code files...
+
+======================================================================
+Inspecting script file scope.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 11th Oct 2022
+Description: Getting familiar with local and global variables
+"""
+
+
+#Understanding the concept of the scope and global and loca variables
+
+#Global variables
+_a_global = 10 # a global variable
+
+if _a_global >= 5:
+    _b_global = _a_global + 5 #also a global variable
+
+print("Before calling a_function, outside the function, the value of _a_global is", _a_global)
+print("Before calling a_function, outside the function, the value of _b_global is", _b_global)
+
+def a_function():
+    """ a function that prints variables"""
+    _a_global = 4 #a local variable
+
+    if _a_global >= 4:
+        _b_global = _a_global = 5 #also a local variable
+
+    _a_local = 3
+
+    print("Inside the function, the value of _a_global is", _a_global)
+    print("Inside the function, the value of _b_global is", _b_global)
+    print("Inside the function, the value of _a_local is", _a_local)  
+
+    a_function() 
+
+print("After calling a_function, outside the function, the value of _a_global is (still)", _a_global)
+print("After calling a_function, outside the function, the value of _b_global is (still)", _b_global)
+print("After calling a_function, outside the function, the value of _a_local is ", _a_local) #not defined
+
+##############
+
+_a_global = 10
+
+def a_function():
+    """ a function that prints variables"""
+    _a_local = 4
+
+    print("Inside the function, the value _a_local is", _a_local)
+    print("Inside the function, the value of _a_global is", _a_global)
+
+a_function()
+
+print("Outside the function, the value of _a_global is", _a_global)
+
+##############
+
+_a_global = 10
+
+print("Before calling a_function, outside the function, the value of _a_global is", _a_global)
+
+def a_function():
+    """ a function that prints variables"""
+    global _a_global
+    _a_global = 5
+    _a_local = 4
+    
+    print("Inside the function, the value of _a_global is", _a_global)
+    print("Inside the function, the value _a_local is", _a_local)
+    
+a_function()
+
+print("After calling a_function, outside the function, the value of _a_global now is", _a_global)
+
+##############
+
+def a_function():
+    """ a function that prints variables"""
+    _a_global = 10
+
+    def _a_function2():
+        global _a_global
+        _a_global = 20
+    
+    print("Before calling a_function2, value of _a_global is", _a_global)
+
+    _a_function2()
+    
+    print("After calling a_function2, value of _a_global is", _a_global)
+    
+a_function()
+
+print("The value of a_global in main workspace / namespace now is", _a_global)
+
+##############
+
+_a_global = 10
+
+def a_function():
+    """ a function that prints variables"""
+
+    def _a_function2():
+        """ a function that prints variables"""
+        global _a_global
+        _a_global = 20
+    
+    print("Before calling a_function2, value of _a_global is", _a_global)
+
+    _a_function2()
+    
+    print("After calling a_function2, value of _a_global is", _a_global)
+
+a_function()
+
+print("The value of a_global in main workspace / namespace is", _a_global)
+**********************************************************************
+
+Testing scope.py...
+
+scope.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Missing docstring, either in one or functions and/or at the script level
+
+Current Points = 99.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Before calling a_function, outside the function, the value of _a_global is 10
+Before calling a_function, outside the function, the value of _b_global is 15
+After calling a_function, outside the function, the value of _a_global is (still) 10
+After calling a_function, outside the function, the value of _b_global is (still) 15
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Traceback (most recent call last):
+  File "/home/mhasoba/Documents/Teaching/IC_CMEE/2022-23/Coursework/StudentRepos/AgnieszkaSzwarczynska_/week2/code/scope.py", line 38, in <module>
+    print("After calling a_function, outside the function, the value of _a_local is ", _a_local) #not defined
+NameError: name '_a_local' is not defined. Did you mean: '_a_global'?
+
+======================================================================
+Inspecting script file align_seqs_better.ipynb...
+
+File contents are:
+
+**********************************************************************
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "bc74663e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import sys\n",
+    "import csv\n",
+    "import re"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "9db36f0d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def calculate_score(s1, s2, l1, l2, startpoint):\n",
+    "    \"\"\"\n",
+    "    This function calculates the best source when s1, s2, l1, l2 and the startpoint are provided. \n",
+    "    It aligns the shorter sequence at the startpoint location of the longer sequence and calculates the number of matching base pairs\n",
+    "    If you want to import this function as a module, assign the longer sequence s1, and the shorter to s2. \n",
+    "    l1 is length of the longest, l2 that of the shortest\n",
+    "    \"\"\"\n",
+    "    matched = \"\" # to hold string displaying alignements\n",
+    "    score = 0\n",
+    "    #import ipdb; ipdb.set_trace()\n",
+    "    for i in range(l2):\n",
+    "        if (i + startpoint) < l1:\n",
+    "            if s1[i + startpoint] == s2[i]: # if the bases match\n",
+    "                matched = matched + \"*\"\n",
+    "                score = score + 1\n",
+    "            else:\n",
+    "                matched = matched + \"-\"\n",
+    "\n",
+    "    # some formatted output\n",
+    "    print(\".\" * startpoint + matched)           \n",
+    "    print(\".\" * startpoint + s2)\n",
+    "    print(s1)\n",
+    "    print(score) \n",
+    "    print(\" \")\n",
+    "\n",
+    "    return score"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "162d9419",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def main(argv):\n",
+    "    \"\"\"\n",
+    "    Main entry point of the program.\n",
+    "    This program takes a .txt file as input and then calculates the best score among the two sequences.\n",
+    "    It prints the outout to another .txt file which is then stored in the results directory\n",
+    "    \"\"\"\n",
+    "    \n",
+    "    # Opening the data file\n",
+    "    with open('../data/seqs.txt', 'r') as f:\n",
+    "        temp = []\n",
+    "        for line in f:\n",
+    "            temp.append(line.split('\\n')[0])\n",
+    "\n",
+    "    # Asigning the sequences\n",
+    "    seq1 = temp[0]\n",
+    "    seq2 = temp[1]\n",
+    "\n",
+    "    # Assign the longer sequence s1, and the shorter to s2\n",
+    "    # l1 is length of the longest, l2 that of the shortest\n",
+    "\n",
+    "    l1 = len(seq1)\n",
+    "    l2 = len(seq2)\n",
+    "    if l1 >= l2:\n",
+    "        s1 = seq1\n",
+    "        s2 = seq2\n",
+    "    else:\n",
+    "        s1 = seq2\n",
+    "        s2 = seq1\n",
+    "        l1, l2 = l2, l1 # swap the two lengths\n",
+    "    \n",
+    "# now try to find the best match (highest score) for the two sequences\n",
+    "    my_best_align = None\n",
+    "    my_best_score = -1\n",
+    "\n",
+    "    for i in range(l1): # Note that you just take the last alignment with the highest score\n",
+    "        z = calculate_score(s1, s2, l1, l2, i)\n",
+    "        if z > my_best_score:\n",
+    "            my_best_align = \".\" * i + s2 # think about what this is doing!\n",
+    "            my_best_score = z \n",
+    "    print(my_best_align)\n",
+    "    print(s1)\n",
+    "    print(\"Best score:\", my_best_score)\n",
+    "\n",
+    "    list_to_save = [my_best_align, s1, 'Best score: ', my_best_score]\n",
+    "\n",
+    "    f = open('../results/best_align.txt', 'w+')\n",
+    "    for i in list_to_save:\n",
+    "        f.write(str(i) + '\\n')\n",
+    "    f.close() \n",
+    "    return 0"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "e4c87959",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "if __name__ == '__main__':\n",
+    "    \"\"\"Makes sure the main function is called from the command line\"\"\"\n",
+    "    status = main(sys.argv)\n",
+    "    sys.exit(status)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "f4bc3c4f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#####################\n",
+    "# code to read FASTA file\n",
+    "#####################\n",
+    "def fasta_parser(args= ['../data/407228326.fasta', '../data/407228412.fasta']):\n",
+    "    \n",
+    "    hre=re.compile('>(\\S+)')\n",
+    "    lre=re.compile('^(\\S+)$')\n",
+    "    dict_fastas = {}\n",
+    "    for x in range(1, 10):\n",
+    "        d[\"string{0}\".format(x)] = \"Hello\"\n",
+    "\n",
+    "    for i in range(args):\n",
+    "\n",
+    "        f=open(args[i],'r')\n",
+    "        lines=f.readlines()\n",
+    "        \"Seq{0}\".format(i) = {}\n",
+    "\n",
+    "    \n",
+    "    seq1={}\n",
+    "\n",
+    "    for line in lines:\n",
+    "            outh = hre.search(line)\n",
+    "            if outh:\n",
+    "                    id=outh.group(1)\n",
+    "            else:\n",
+    "                    outl=lre.search(line)\n",
+    "                    if(id in seq1.keys()):\n",
+    "                            seq1[id] += outl.group(1)\n",
+    "                    else:\n",
+    "                            seq1[id]  =outl.group(1)\n",
+    "                            dict_fastas[\"seq{0}\".format(i)] = \"Hello\"\n",
+    "    f.close()\n",
+    "    \n",
+    "    f=open(arg2,'r')\n",
+    "    lines=f.readlines()\n",
+    "\n",
+    "    seq2={}\n",
+    "\n",
+    "    for line in lines:\n",
+    "            outh = hre.search(line)\n",
+    "            if outh:\n",
+    "                    id=outh.group(1)\n",
+    "            else:\n",
+    "                    outl=lre.search(line)\n",
+    "                    if(id in seq2.keys()):\n",
+    "                            seq2[id] += outl.group(1)\n",
+    "                    else:\n",
+    "                            seq2[id]  =outl.group(1)\n",
+    "    f.close()\n",
+    "    \n",
+    "    return seq1, seq2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "id": "7e1d3bbf",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def entry_point(argv):\n",
+    "    if len(argv) != 3:\n",
+    "        print(\"Too few or too many arguements...\")\n",
+    "        print(\"Continuing with defaults..\")\n",
+    "        seq1, seq2 = fasta_parser().values()\n",
+    "        print(seq1)\n",
+    "        print(\"##########################\")\n",
+    "        print(seq2)\n",
+    "    else:\n",
+    "        try:\n",
+    "            arg1 = argv[1]\n",
+    "            arg2 = argv[2]\n",
+    "            re.search(r'\\w+\\.fasta\\s\\w+\\.fasta', arg1 + \" \" + arg2).group()\n",
+    "            print(\"Better to write a fasta parsing function\")\n",
+    "            seq1, seq2 = fasta_parser().values()\n",
+    "            print(seq1)\n",
+    "            print(\"##########################\")\n",
+    "            print(seq2)\n",
+    "        except:\n",
+    "            print(\"Going back to defaults since wrong inout was given\")\n",
+    "            seq1, seq2 = fasta_parser().values()\n",
+    "            print(seq1)\n",
+    "            print(\"##########################\")\n",
+    "            print(seq2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "9df0508c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(\"Too few or too many arguements...\")\n",
+    "print(\"Continuing with defaults..\")\n",
+    "\n",
+    "# code to read FASTA file\n",
+    "f=open('../data/407228326.fasta','r')\n",
+    "lines=f.readlines()\n",
+    "\n",
+    "hre=re.compile('>(\\S+)')\n",
+    "lre=re.compile('^(\\S+)$')\n",
+    "\n",
+    "fasta1={}\n",
+    "\n",
+    "for line in lines:\n",
+    "        outh = hre.search(line)\n",
+    "        if outh:\n",
+    "                id=outh.group(1)\n",
+    "        else:\n",
+    "                outl=lre.search(line)\n",
+    "                if(id in fasta1.keys()):\n",
+    "                        fasta1[id] += outl.group(1)\n",
+    "                else:\n",
+    "                        fasta1[id]  =outl.group(1)\n",
+    "f.close()\n",
+    "#####################\n",
+    "# code to read FASTA file\n",
+    "f=open('../data/407228412.fasta','r')\n",
+    "lines=f.readlines()\n",
+    "print(lines)\n",
+    "hre=re.compile('>(\\S+)')\n",
+    "lre=re.compile('^(\\S+)$')\n",
+    "\n",
+    "gene={}\n",
+    "\n",
+    "for line in lines:\n",
+    "        outh = hre.search(line)\n",
+    "        if outh:\n",
+    "                id=outh.group(1)\n",
+    "        else:\n",
+    "                outl=lre.search(line)\n",
+    "                if(id in gene.keys()):\n",
+    "                        gene[id] += outl.group(1)\n",
+    "                else:\n",
+    "                        gene[id]  =outl.group(1)\n",
+    "f.close()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c3b4d5f8",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "line"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "id": "3b7095f4",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "argv = ['xdfghj']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "id": "6c54eff3",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Too few or too many arguements...\n",
+      "Continuing with defaults..\n",
+      "AAAAAAACAAAAAGATACATATATATGATATATCTGATATATGATATATATATGATATATCTGATATATGATATATATATGATATATCTGATATATGATATATATATGATATATCTGATATATGATATATATATGATATATCTGATATATATACATATGGTATACATGAGATACATCATATGTATATATGGTATACATGAGATACATCATATGTATATATGGTATACATGAGATACATCATATGTATATATGGTATACATGAGATACATCATATGTATACATGAGATACATCATATGTATACATGAGATACATCATATGTATACATGAGATACATCATATGTATACATGAGATACATCATATGTATACATGAGATACATCATATGTATACATGAGATACATCATATGTATACATGAGATACATCATATGTATACATGACATACATCATATGTATACATGACATACATCATATGTATACATGACATACATATGTATATATGATACATATATATCATGTATATATGATACATATGTACATATATATGTATATATGATACATATGTATCATATATATCAGGTATATATGATACATATGTATCATATATATCAGGTATATATGATACATATGTATCATATATATCAGGTATATATGATACATATGTATCATATATATCAGGTATATATGATACATATGTATCATATATATCAGGTATATATGATACATATGTACATATATATCAGGTATATATGTACATATGTACATATATCAGGTATATATGTACATATGTACATATATATCAGGTATATATGTACATATGTACATATATATCAGGTATMTATGTACATATGWTCATATATATCAGGTATATATGTACATATGTTCATATATATCATGTATATATGAACATATGTACGTATATATCATGTATATATGATACATATATACGTATATATCATGTATATATGATACATGTATACGTATATATCATGTATATATGATACATATATACGTATATCATGTATATATGACGTACGTCATATATATCATGTGTATATATGATGTACGTCATATATATCAGATATCATATATACACATATATCCTATATGTGTATATATGATATATGTATATATGATCTATATACATATATATCATATGTTCTATGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATGATATATATCATATCTGATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCATATATGATATATGATATATATCATATCATATATGATATATGATATATATCATATCATATATGATATATGATATATATGATATATCATATCATATATGATATATGATATATATGATATATCATATCATATAATATATGATATGATATGATATGATATATATGATATATCATATCATATAATATATGATATATATGATATATATCATATATCATATATATAATATATGATATATATGATATATATCATATATCATATCATATATCTTTTTTTTTTTTTT\n",
+      "##########################\n",
+      "AGAATGGCGCAGCCACTTTGGAAGACAGTTTGGCAGTTTCTTACAAAGCTAAACATACTCTTACTATATGATCTAGCAATTGTGCTTCTAGGTATTTACTTACCCAAGGAGTTGAAAACTTATGCCCACACAAAAACCTGCACATGATGTTGATAGCATCTTTACCCATAATTGCCAAAAAGTTGAAGGAACCAAAGTGTCCTTCAAAAGGCGAATGGGTAGAACAACTGTGGTACATCCAGACAATGGAATATCATTCAGAGACAAAAAGCAATGAGCTGGCCGGGTGCGGTGTCTCATGCCTGTAATCCCAGCACTTTGGGAGGCTGAGGCGGGCGGACCATGTGGTCAGGAGATTGAGACCATCCTGGCTAACACAGTGAAAACCCATCTCTAAAAAAAAAAAAAAAAAACAACAGCTGGGCATGGTGGCAGGTGCCTGTAGTCCCAGCTACTCGGAGGCTGAGGCAGGAGAATGGCGTGAACCCGGGAGGCGCAGCTTGCAGTGAGCCGAGATCACACCACTGCACTCCAGCCTAGGAGACAGAGCGAGACTCTGTCTCAAAATAAATAAATAAATAAATAAATAAATAAATAAATAAATAAATAAAAGCAAGGAGCTATCAAGCCTTGAAAAGACATACAGGGGCCATAACTGCCTACTACTCAGTGAAAGAAGCTAGTCGGAAAAAGTTAATAGTGTATCGTTGATAGTGGATAAGTCAAAACTTCAGAGACAATGAAAATATCCGTGGTTTCCAGGGGATGGGGAGAGGGAGAGGCAGTGGAGCACGAGATTTTGAGGGCAGGGGATGTATTCCGCATAATACGGTAATGGTGGACACATGACTTGTGCACTTGCCACGACCCACAGAATGTACAACAGACAGAGTGAACCCTCATGTAAACTGTGGGAGTTCGTTAGTAATAATGTATCAATATTGTTCATCAGCTGTAACAATGCACCCACAGTAATGCAAAATGTTCATAACAGGAAACTCTGTGTGTGGGGATGTGTGTGTGGGGGGATACGATCTGTACTATCTGCCCAGTTGTCTGTAAACTTAAAACTGCTCTAAAAAATAAAGTGCATTAATTCCAAAACACCACAACTTCACGTGCAATTTCAACTTGCAACAGCCTGCTTTTAGTCTCCCCGGATCCTTCTGTTACTGTAGCACACGCCGCACCCTTGTGTATTCCATAAACCACACGATACCTGCACTCGCTTTGCTGTTGTTGCTTCAAACTGCCAATTCTCTTTCAAATATTTTTTGAGAGAGAAAACTGTCTTACACAGTCACAGCTGTTTCCATTTCCAGAGTTTATCTTCCCTTAGTCTAGGTCTAGATGTTCATCTCTTATCATCTTCTTCCTGCAGAACTTCCTTTCACATTTCTTTTTTTTTTTTTTTTTTTTTTTTTTGAGACGGAGTCTCCTTCATTGCCCAGGCTGGAGTGCAGTGGCGCCATCTCGGATCACGGCAAGCTCCGCCTCCCGGGTTCACGCCATTCTCCTGCCTCAGCCTCCCGAGTAGCTGGGACTACAGGTGCCCGCCACCACGCCCGGCTAATTTTTTGTATTTTTAGTAGAGACAGGGTTTCACTGTGTTAGCCAGGGGGGTCTCGAACTCCTGACCTCAGGTGATCCACCCGCCTTGGCCTCCCGAAGTGCTAGGATTACAGGCGTGAGCCACCGCGCCCAGCTAATTTTTGTATTTTTAGTAGAGATGGGGTTTCATCACGTTGGCCAGGCTGGTCTTGAACTCCTGACCTCAGGTGACCCAGCCGCCTCGGCCTCCCAAAGTGCTAGGATTACAGGCGTGAACCACCACGCCCGAACATGATTGATTTTTTTTATCGGGAGGTCATCCTTTTTCATGCCTGCTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTAGACACGGTATTGCTTTGTTGCCAGACTGGAGTGCAGTGGCACGATCTCGGCTCACTGCATCCTCTGACTCCCTGGTTCAAGCGATTCTCCTGCCTCAGCCTCCCGAGTAGCTGGGATTACAGGCACGTGCCACCACGCCCGGCTAATTTTTATATTTTTAGTAGAGACGGGGTTTCACCATGTGGGCCAGGCTGGTCTCGTTCTCCTGACCTCACGATCTGCCACCTCGGCCTCCCAAAGTGCTGGGATGACAGGCGTGAGCCACCGCGCCCGGCCACCCGCTCGTTCTTGACTAGCCCCCGGATCTCGTGAGTACTCTCTGGAGTGTTTTGTTGCGTGCTGGGTTGTGTTCTATTCCTTGACATCGTTTTGAGATGTGTTCTCACAGGCAGTTAAGTCACTTGCAATCATTTGGATCCGTCTGGGCTTTGCTTTTCAGCTTTGTGAGGGTGGGTCCGGAGAAGCCTTTGGTTTCGGGATTACTTTCTCCCCTCGTACCCTTCCATACCCTTCCGAGGACTCTCCAGTGCCTGCCTCTGACAAGGTTTCTCCACTCAGCTGCTGGGAACACGCGATATCCCCAGCCCCGCGCGCACTCCCGGACTCCGCCCCTCTCATCTGGTGGTTCTCGTTTCCGACGCGGCTCCCACGTCTCTCTGCATCTCCGGCACTCGGCCGAGGACGCCGGGGGGAACCCCCTGCGGATGCCCGGAGCTCTCCGTGCAGTTCTCCGCCTCGTGAGTCATGGCTGCCGGGGCCTCTGCACGCGCCAGGTGCGTCTCCCCAGCCCAGCAAGCTCCTGGGGCTGAGTTTCCCATCGCTGCCCTGAGTCTGGGCGCGGCCACTGTCGTCTCACCCGACTCCCCACCCTTCTCTCGGGGACACTGCCCCACGTGGCCTCTTGCCCAGTGTCTGTCAATGGCCTGGGACCCCAGCCCTGCAGCAGCCCCAGGGGAGCGGCCGGGGATCGGGGCGGGGTGCCCAGGACGCGCCCTGATTGGCCCAGTGTTAGCCAATCAAGGCTCTCGCATCCCCATGGTGCTGATTGGTCCGCCTCCCAGGCCTGACCCAATCGGAGCATTCCTAGGAGGAGCGGCCCCAGAGCCCCTGACTCGGGGGTCCCAGAGCCCTCTGCACACCACAGCCCCGGTGTCCCCGTGTGTCCCTGGGTTCTCCCAGCCCTGGTGTCCCCTGAGTCTCTTCTTCACCGTCAGCCCTGGTGTCTCCCGTGTCCCTGCCACACCCTCATCCCTGGTGTCCCCCGTCACCCCATCCCCTCACCTCCTGGGCTCCTGAAGGTCCCATCTTGTGGGCCTCATTCATGGAACCAGGACGGGGCAGGTGGAGGCCTCTGGGGAGTTTGTCCAGAGAATGGAGGAGAAGCAGGGTCATGAGCAGGAGCGGTCTGGGCCACCCCTGCCTGTCCCCCGGGGGGTGCAGCCCGGAAGGAGTCCAGATGCATATGGCCCCGCAGTGCAGAGTCAGCCCCAAACCAGGCTGGTCCCAGGCAGGGTGGGGGCAGGAGGAGCCCTGGAGTGGCCCTGTGTTGGGGGTCGGGGGGCAGGCAGGGGGTCCTGGGGCTCAGAAGCGGAGGAGGTGGGCTGGAGGCCCCAGTGACCAACAGGCCCAGGGGAGTCAGGAGGTGGGGTGGACGGACCTGCAGGGACAGTGTCAGCGCTGAATGGGATGGAGAGCACAGGGAGCTGGGGCCGGGGGCAAGTCCACAGGGAGCTGGGGCCGGGGGTGAGACCATGGGGAGCTGGGCTGGGGCTGGGGGTGAGACCATGGGGAGCTGGGGCCGGGGGCTGGGACTAGTCCATGGGGAGCTGGGCTGGGGCTGGGGGTGAGTCCATGGGGAGCTGGGCTGGGGCTGGGGGTGAGACCATGGGGAGCTGGGCTGGGGCTGGGGGTGAGACCATGGGGAGCTGGGGCCGGGGGATGGGACTAGTCCATGGGGAGCTGGGCTGGGGCTGGGGGTGAGACCATGGGGAGCTGGGCTGGGGCTGGGACTAGTCCATGGGGAGCTGGGTCTGGAGCTGGGGGTGAGACCATGGGGAGCTGGGGCCGGGGGCTGCGACTAGTCCATGGGGAGCTGGGCTGGGGCTGGGGGTGAGTCCATGGGGAGCTGGGCTGGGGCTGGGGGTGAGTCCATGGGGAGCTGGGGCTGGGGCTGGGACTAGTCCATGGGCAGCTGGGCTGGGGCTGGGGGTGAGTCCATGGGGAGCTGGGCTGGGGCTGGGGGTGAGTCCATGGGGAGCTGGGCTGGGGTTGGGGGTGAGTCCATGGGGAGCTGGGCTGGGTCTCCTGGGGTTGCACCTGCACTCCTGTCTGCCCTTCCCTCTGCCGATGAAGCTCAGATCCCATGATAAGGAGGCACCTGCAGACCAGGGGTCCTGCACGGACAGCCCCAGAGGTGGACATTGAGGACTCGTAGGAGGACTTGGGTCTCATACGGCGGGTGGGGAGCAGGGCCCCTTCCTGGCTGAGGACACTTGGTGCTGTCCCCTCTCAAGGCTGTTTCCCCATCTGACAAAGGGGTCTCATGTGAGCCTCCCACCAAGTGAGTCGAGGAGGGCTGGCGCCACCCCCGTGGATTCGGAGTCCGTAAGAGGGGTGTCACCCGTCATGTCCCCACCCCGTGGGCACCTTCCCGTCTCTTGGAGGGTGGCCCATGGACATGAGTTCCTCACCCCGTGTCCCTCTTGGGGAAACAGGTTTCAGGAGCGATGGGTCTTGTAGCCTGGGACAGCCAGGCCACCTGGGTGCAGCAATGCCTGAAGGCCTCCTGGCACCGAGACAGGGGCAGGAGCAGATCCCACCAGCGGGAAGGTGGTGGGTTCTAGTGCTGGGATCCACCAGCTGACAGGTGGAGCTGCCAGTCTCCAGTGCTCAGCCCTCAGCGGGGCCTGCCTGGCAGCCCCACACACAGAGGGCATCGGGGTGGCGGGGGCACGTGTTACACGGGGGCCCTGGGTCTGAGTCATCCACTTCCTCCGAGTCTGGATGGGAGGACCCAGCGCCCCTCCTCCGCCCCCTCCTGATCTGGAAGCATAAATGGGGAGGGGAGAGCCCACTGGGTAGAAGGAACAGGGAGCGGCCAGGGTAAGTCCCCACTCTCAGAGACCCTGACATCAGCGTCACCTGGAGCAGAGTGGCCCAGCCTCAGACTCAGAGCACCAAGACCCAGGCCTGCAGGCCTGGACCCACCCCGGTCCCCCCGTCCCAGCTCCATTCTTCACCCCACAATCTGTAGCCCCCAGCCCTGCCCTGTGAGGCCCGGCCAGGCCCACGATGCTCCTCCTTGCTCCCCAGATGCTGAATCTGCTGCTGCTGGCGCTGCCCGTCCTGGCGAGCCGCGCCTACGCGGCCCCTGGTGAGTCCCAGCCGGGGTCCACCCTGCCCCTCACCACATTCCACAGGTCAGGGCCTGGGTGGGTTCTGGGGAGGTCGGGCTGGCCCCCACACAGGGAAGGGCTGGGCCCAGGCCTGGGGCTGCTTCCTGGTCCTGACCTGGCACCTGCCCCAGCCCCAGGCCAGGCCCTGCAGCGAGTGGGCATCGTTGGGGGTCAGGAGGCCCCCAGGAGCAAGTGGCCCTGGCAGGTGAGCCTGAGAGTCCGCGACCGATACTGGATGCACTTCTGCGGGGGCTCCCTCATCCACCCCCAGTGGGTGCTGACCGCAGCGCACTGCGTGGGACCGTGAGTCTCCCGGGGCCTGGAAGGGTGGGGAAGGGCTGGATGTGAGCCCTGGCTCCCGGGTGCTCCTGGGGGCTGCCCAGGGCCCTGAGTGGGATCCTCCGCTGCCCAGGGACGTCAAGGATCTGGCCGCCCTCAGGGTGCAACTGCGGGAGCAGCACCTCTACTACCAGGACCAGCTGCTGCCGGTCAGCAGGATCATCGTGCACCCACAGTTCTACACCGCCCAGATCGGAGCGGACATCGCCCTGCTGGAGCTGGAGGAGCCGGTGAACGTCTCCAGCCACGTCCACACGGTCACCCTGCCCCCTGCCTCAGAGACCTTCCCCCCGGGGATGCCGTGCTGGGTCACTGGCTGGGGCGATGTGGACAATGATGGTGGGTCTGGGGACAGTGGAGGTGGGGCCAGGGTCTTAGCCACAGCCCAGCCCCTGGGCTCCCTCTGGGCTCCAGGTGGGGGTTGCCCGGCCCCCTCCTGAGGCTGCACCCTCTTCCCCACCTGCAGAGCGCCTCCCACCGCCATTTCCTCTGAAGCAGGTGAAGGTCCCCATAATGGAAAACCACATTTGTGACGCAAAATACCACCTTGGCGCCTACACGGGAGACGACGTCCGCATCGTCCGTGACGACATGCTGTGTGCCGGGAACACCCGGAGGGACTCATGCCAGGTGGGCCCCGCCTGTCCCCCGCCCCCCGCCCCCCAACCCCCACTCCCAGGCCTGTTCGGCGAGCGCTGACCTCTGACCTTCCCAGGGCGACTCCGGAGGGCCCCTGGTGTGCAAGGTGAATGGCACCTGGCTGCAGGCGGGCGTGGTCAGCTGGGGCGAGGGCTGTGCCCAGCCCAACCGGCCTGGCATCTACACCCGTGTCACCTACTACTTGGACTGGATCCACCACTATGTCCCCAAAAAGCCGTGAGTCAGGCCTGGGGTGTCCACCTGGGTCACTGGAGAGCCAGCCCCTCCTGTCCAAAACACCACTGCTTCCTACCCAGGTGGCGACTGCCCCCCACACCTTCCCTGCCCCGTCCTGAGTGCCCCTTCCTGTCCTAAGCCCCCTGCTCTCTTCTGAGCCCCTTCCCCTGTCCTGAGGACCCTTCCCCATCCTGAGCCCCCTTCCCTGTCCTAAGCCTGACGCCTGCACCGGGCCCTCCGGCCCTCCCCTGCCCAGGCAGCTGGTGGTGGGCGCTAATCCTCCTGAGTGCTGGACCTCATTAAAGTGCATGGAAATCACTGGTGTGCATCGCTGTGTTTCTGGTTGTGGATGTCACTGGGAGAGAAGGGGTCCAGGTGTGCTGAGGACACCTGCCACAGTGTGAGGTCCTAGCCCTCAAGGCACAGCCAGTCACCGTGGGACGGGGCCTCCTGGGCAGCCCTGGTCCCCGAGGCTGGCTTCTCCCCACACGATGCATCCAGCATTCGGGTCACACAGAGCCACTCGGGCAACTCAGTTGATTATAAAGGACAGCCAGGTCCCTGCAACCGGGTCAAGACAGAGAATGGTCACCGGGAGCCCCAGGGCTGCCCATCACGAGCCCCTACCCCACGCTTCCCACGAGCTCTTCTCCCGGCCCCTCCGTCCACTGCTTGTGCTTTGCCTAGTTGTTTGCTTTGAGACGGGATCTCGCTGTGTCATCCAGGCTGAAGTGCAGTGGTGTGATCAGGGCTCACTGCAGCCTTAACTCCTGGGCTCAAGCGATCCTCCCATCTTGGCCTCCCATATAGCTGGGCCACAGGAGTGAGCCACCACGCCCAGTTAATTTTTGTATTTTCAGTAGAGATGGGGTTTCGCCATGTTGGCCAGTCTGGTCTCGAACTCCTGACCTCAAGTGATCCGCCCGCCTCGGCCTCCCAAAGTGCTGGGATGACAGGCGTGAGCCACCGCACCCGGCCTGAGTTTGACATTTTCAAATTCATTTTGAGGTCTTTCTCTACATCAATAGGTGAGCCCTCTGCGTCTGGCGAGTGTTGCATTTTATCCCGGGCTCTTGTTTGCATTTTATATTTGAACATGATTACACTCAGGAATGAAATGCGGGGCTGTTCTGGTTGAAAACAACTCTCTAAAGAAACATTCACTCTTTCCTTCCAACTGTTAGATGCAGAGATGTGCATTTAGTCTCCCGAATCTCTGCAAATGACCTCTGTCCTCACAAGGGGTGGACTCAACTCCCAGTGCCCTCTCCAGCCCCACGTGACCTCTGCCTCTGCAGCCCCTGAAGGCCCATCCCTCGGCTCCTGTTCTGCAGGCCCAGCGTCTTGTTAATGAAGATGGACCTGGAACTCGGGCCCTTCTTCCTCCCTCTGGCCCATCCCACCTTCTAGGGATCACAGAGACAGCACGGGGTGACCCCCAGGGAACACTGAGCCCCTAGAAGCACTTCCACACGCCCACTGGAGGTTTTGCGGGGTGGGAGTCGGAGGGATGAGACCCCGAAGGGAAGCAAGACGGCCCCTCAGGACAGGGCTGCCGGTGTAAGGAAAGGTGGACAGCAGGGGCCGGTCACTGGGTGGAGGGGGAGGGCGGGCTCCAGCCCCAGAGCTTCCCAAATTAGATCTAAGATCCCTGGGAAGCTCAGTGAAGCTCAGCCCAGTGACACTGGCAGATGTGAGCGTCAGCTTCAGCAGGAAGGGTCTCTCAGGACGTGGCAGGCAGGCTGCTGGCCAGGGCTGCAGCCACCTGCGTTTTGACTGGGACGGGGGCACCTGCTCCAAGGTCACCCACGTGGCTGCCGGCAGGAGGCCCTGGTTCCCCGTCACAGGGGGGTGTGAGGCGGAGGGCGAGTGGGGGGGACAGGGTTCCCACCGAGGGGACGGCACCCAGGTGGCCAGGCCACCGCAGACAGAAGCAATCCCAGGTCTCCCAGGGTCCTGGACAACAGGAGACCCCACCAAGCTGGGGGCAATCACCAGGGCCAGGCCCCCCTCCCGGTTCCTCAGTTGGCTCTCCTGTCCAATGGTGGGGGTGAACGGCACCATGTCACAGGACTGCTGGGGCTCAGGGGATGGTGCCTGAAGCTTCTTCCTCCCCAGCAGGCCTGCAATCTGGGTCGTGTGGAGCACTCTGCGGGGAGTGGCGTGCTGGGGCACAGGCAGAAAGACGGGGTCCCCAGTGCTGCAGGTGAATTGAGTTGGGACAGGTGAGGGCCCTGAAGTCCCCACCTGTGGGGACCTGGGGACAGCCCTAGAGGTCAGGACTAGAGGACCTGGTTCCATGAAGACCCTGCCCCTCA\n"
+     ]
+    }
+   ],
+   "source": [
+    "entry_point(argv)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "026bf777",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#####################\n",
+    "# code to read FASTA file\n",
+    "#####################\n",
+    "def fasta_parser(args= ['../data/407228326.fasta', '../data/407228412.fasta']):\n",
+    "    \n",
+    "    hre=re.compile('>(\\S+)')\n",
+    "    lre=re.compile('^(\\S+)$')\n",
+    "    seqs_dict = {}\n",
+    "    \n",
+    "    for i in range(len(args)):\n",
+    "        f=open(args[i],'r')\n",
+    "        lines=f.readlines()\n",
+    "        \n",
+    "        gene = {}\n",
+    "        for line in lines:\n",
+    "                outh = hre.search(line)\n",
+    "                if outh:\n",
+    "                        id=outh.group(1)\n",
+    "                else:\n",
+    "                        outl=lre.search(line)\n",
+    "                        if(id in gene.keys()):\n",
+    "                                gene[id] += outl.group(1)\n",
+    "                        else:\n",
+    "                                gene[id]  =outl.group(1)\n",
+    "#         print(gene)                        \n",
+    "        seqs_dict[\"Seq%s\" % (i+1)] = gene[id]\n",
+    "        f.close()\n",
+    "    return seqs_dict"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "2685fd7f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'Seq1': 'AAAAAAACAAAAAGATACATATATATGATATATCTGATATATGATATATATATGATATATCTGATATATGATATATATATGATATATCTGATATATGATATATATATGATATATCTGATATATGATATATATATGATATATCTGATATATATACATATGGTATACATGAGATACATCATATGTATATATGGTATACATGAGATACATCATATGTATATATGGTATACATGAGATACATCATATGTATATATGGTATACATGAGATACATCATATGTATACATGAGATACATCATATGTATACATGAGATACATCATATGTATACATGAGATACATCATATGTATACATGAGATACATCATATGTATACATGAGATACATCATATGTATACATGAGATACATCATATGTATACATGAGATACATCATATGTATACATGACATACATCATATGTATACATGACATACATCATATGTATACATGACATACATATGTATATATGATACATATATATCATGTATATATGATACATATGTACATATATATGTATATATGATACATATGTATCATATATATCAGGTATATATGATACATATGTATCATATATATCAGGTATATATGATACATATGTATCATATATATCAGGTATATATGATACATATGTATCATATATATCAGGTATATATGATACATATGTATCATATATATCAGGTATATATGATACATATGTACATATATATCAGGTATATATGTACATATGTACATATATCAGGTATATATGTACATATGTACATATATATCAGGTATATATGTACATATGTACATATATATCAGGTATMTATGTACATATGWTCATATATATCAGGTATATATGTACATATGTTCATATATATCATGTATATATGAACATATGTACGTATATATCATGTATATATGATACATATATACGTATATATCATGTATATATGATACATGTATACGTATATATCATGTATATATGATACATATATACGTATATCATGTATATATGACGTACGTCATATATATCATGTGTATATATGATGTACGTCATATATATCAGATATCATATATACACATATATCCTATATGTGTATATATGATATATGTATATATGATCTATATACATATATATCATATGTTCTATGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATGATATATATCATATCTGATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCTGATATATATGATATATATCATATCATATATGATATATGATATATATCATATCATATATGATATATGATATATATCATATCATATATGATATATGATATATATGATATATCATATCATATATGATATATGATATATATGATATATCATATCATATAATATATGATATGATATGATATGATATATATGATATATCATATCATATAATATATGATATATATGATATATATCATATATCATATATATAATATATGATATATATGATATATATCATATATCATATCATATATCTTTTTTTTTTTTTT',\n",
+       " 'Seq2': 'AGAATGGCGCAGCCACTTTGGAAGACAGTTTGGCAGTTTCTTACAAAGCTAAACATACTCTTACTATATGATCTAGCAATTGTGCTTCTAGGTATTTACTTACCCAAGGAGTTGAAAACTTATGCCCACACAAAAACCTGCACATGATGTTGATAGCATCTTTACCCATAATTGCCAAAAAGTTGAAGGAACCAAAGTGTCCTTCAAAAGGCGAATGGGTAGAACAACTGTGGTACATCCAGACAATGGAATATCATTCAGAGACAAAAAGCAATGAGCTGGCCGGGTGCGGTGTCTCATGCCTGTAATCCCAGCACTTTGGGAGGCTGAGGCGGGCGGACCATGTGGTCAGGAGATTGAGACCATCCTGGCTAACACAGTGAAAACCCATCTCTAAAAAAAAAAAAAAAAAACAACAGCTGGGCATGGTGGCAGGTGCCTGTAGTCCCAGCTACTCGGAGGCTGAGGCAGGAGAATGGCGTGAACCCGGGAGGCGCAGCTTGCAGTGAGCCGAGATCACACCACTGCACTCCAGCCTAGGAGACAGAGCGAGACTCTGTCTCAAAATAAATAAATAAATAAATAAATAAATAAATAAATAAATAAATAAAAGCAAGGAGCTATCAAGCCTTGAAAAGACATACAGGGGCCATAACTGCCTACTACTCAGTGAAAGAAGCTAGTCGGAAAAAGTTAATAGTGTATCGTTGATAGTGGATAAGTCAAAACTTCAGAGACAATGAAAATATCCGTGGTTTCCAGGGGATGGGGAGAGGGAGAGGCAGTGGAGCACGAGATTTTGAGGGCAGGGGATGTATTCCGCATAATACGGTAATGGTGGACACATGACTTGTGCACTTGCCACGACCCACAGAATGTACAACAGACAGAGTGAACCCTCATGTAAACTGTGGGAGTTCGTTAGTAATAATGTATCAATATTGTTCATCAGCTGTAACAATGCACCCACAGTAATGCAAAATGTTCATAACAGGAAACTCTGTGTGTGGGGATGTGTGTGTGGGGGGATACGATCTGTACTATCTGCCCAGTTGTCTGTAAACTTAAAACTGCTCTAAAAAATAAAGTGCATTAATTCCAAAACACCACAACTTCACGTGCAATTTCAACTTGCAACAGCCTGCTTTTAGTCTCCCCGGATCCTTCTGTTACTGTAGCACACGCCGCACCCTTGTGTATTCCATAAACCACACGATACCTGCACTCGCTTTGCTGTTGTTGCTTCAAACTGCCAATTCTCTTTCAAATATTTTTTGAGAGAGAAAACTGTCTTACACAGTCACAGCTGTTTCCATTTCCAGAGTTTATCTTCCCTTAGTCTAGGTCTAGATGTTCATCTCTTATCATCTTCTTCCTGCAGAACTTCCTTTCACATTTCTTTTTTTTTTTTTTTTTTTTTTTTTTGAGACGGAGTCTCCTTCATTGCCCAGGCTGGAGTGCAGTGGCGCCATCTCGGATCACGGCAAGCTCCGCCTCCCGGGTTCACGCCATTCTCCTGCCTCAGCCTCCCGAGTAGCTGGGACTACAGGTGCCCGCCACCACGCCCGGCTAATTTTTTGTATTTTTAGTAGAGACAGGGTTTCACTGTGTTAGCCAGGGGGGTCTCGAACTCCTGACCTCAGGTGATCCACCCGCCTTGGCCTCCCGAAGTGCTAGGATTACAGGCGTGAGCCACCGCGCCCAGCTAATTTTTGTATTTTTAGTAGAGATGGGGTTTCATCACGTTGGCCAGGCTGGTCTTGAACTCCTGACCTCAGGTGACCCAGCCGCCTCGGCCTCCCAAAGTGCTAGGATTACAGGCGTGAACCACCACGCCCGAACATGATTGATTTTTTTTATCGGGAGGTCATCCTTTTTCATGCCTGCTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTAGACACGGTATTGCTTTGTTGCCAGACTGGAGTGCAGTGGCACGATCTCGGCTCACTGCATCCTCTGACTCCCTGGTTCAAGCGATTCTCCTGCCTCAGCCTCCCGAGTAGCTGGGATTACAGGCACGTGCCACCACGCCCGGCTAATTTTTATATTTTTAGTAGAGACGGGGTTTCACCATGTGGGCCAGGCTGGTCTCGTTCTCCTGACCTCACGATCTGCCACCTCGGCCTCCCAAAGTGCTGGGATGACAGGCGTGAGCCACCGCGCCCGGCCACCCGCTCGTTCTTGACTAGCCCCCGGATCTCGTGAGTACTCTCTGGAGTGTTTTGTTGCGTGCTGGGTTGTGTTCTATTCCTTGACATCGTTTTGAGATGTGTTCTCACAGGCAGTTAAGTCACTTGCAATCATTTGGATCCGTCTGGGCTTTGCTTTTCAGCTTTGTGAGGGTGGGTCCGGAGAAGCCTTTGGTTTCGGGATTACTTTCTCCCCTCGTACCCTTCCATACCCTTCCGAGGACTCTCCAGTGCCTGCCTCTGACAAGGTTTCTCCACTCAGCTGCTGGGAACACGCGATATCCCCAGCCCCGCGCGCACTCCCGGACTCCGCCCCTCTCATCTGGTGGTTCTCGTTTCCGACGCGGCTCCCACGTCTCTCTGCATCTCCGGCACTCGGCCGAGGACGCCGGGGGGAACCCCCTGCGGATGCCCGGAGCTCTCCGTGCAGTTCTCCGCCTCGTGAGTCATGGCTGCCGGGGCCTCTGCACGCGCCAGGTGCGTCTCCCCAGCCCAGCAAGCTCCTGGGGCTGAGTTTCCCATCGCTGCCCTGAGTCTGGGCGCGGCCACTGTCGTCTCACCCGACTCCCCACCCTTCTCTCGGGGACACTGCCCCACGTGGCCTCTTGCCCAGTGTCTGTCAATGGCCTGGGACCCCAGCCCTGCAGCAGCCCCAGGGGAGCGGCCGGGGATCGGGGCGGGGTGCCCAGGACGCGCCCTGATTGGCCCAGTGTTAGCCAATCAAGGCTCTCGCATCCCCATGGTGCTGATTGGTCCGCCTCCCAGGCCTGACCCAATCGGAGCATTCCTAGGAGGAGCGGCCCCAGAGCCCCTGACTCGGGGGTCCCAGAGCCCTCTGCACACCACAGCCCCGGTGTCCCCGTGTGTCCCTGGGTTCTCCCAGCCCTGGTGTCCCCTGAGTCTCTTCTTCACCGTCAGCCCTGGTGTCTCCCGTGTCCCTGCCACACCCTCATCCCTGGTGTCCCCCGTCACCCCATCCCCTCACCTCCTGGGCTCCTGAAGGTCCCATCTTGTGGGCCTCATTCATGGAACCAGGACGGGGCAGGTGGAGGCCTCTGGGGAGTTTGTCCAGAGAATGGAGGAGAAGCAGGGTCATGAGCAGGAGCGGTCTGGGCCACCCCTGCCTGTCCCCCGGGGGGTGCAGCCCGGAAGGAGTCCAGATGCATATGGCCCCGCAGTGCAGAGTCAGCCCCAAACCAGGCTGGTCCCAGGCAGGGTGGGGGCAGGAGGAGCCCTGGAGTGGCCCTGTGTTGGGGGTCGGGGGGCAGGCAGGGGGTCCTGGGGCTCAGAAGCGGAGGAGGTGGGCTGGAGGCCCCAGTGACCAACAGGCCCAGGGGAGTCAGGAGGTGGGGTGGACGGACCTGCAGGGACAGTGTCAGCGCTGAATGGGATGGAGAGCACAGGGAGCTGGGGCCGGGGGCAAGTCCACAGGGAGCTGGGGCCGGGGGTGAGACCATGGGGAGCTGGGCTGGGGCTGGGGGTGAGACCATGGGGAGCTGGGGCCGGGGGCTGGGACTAGTCCATGGGGAGCTGGGCTGGGGCTGGGGGTGAGTCCATGGGGAGCTGGGCTGGGGCTGGGGGTGAGACCATGGGGAGCTGGGCTGGGGCTGGGGGTGAGACCATGGGGAGCTGGGGCCGGGGGATGGGACTAGTCCATGGGGAGCTGGGCTGGGGCTGGGGGTGAGACCATGGGGAGCTGGGCTGGGGCTGGGACTAGTCCATGGGGAGCTGGGTCTGGAGCTGGGGGTGAGACCATGGGGAGCTGGGGCCGGGGGCTGCGACTAGTCCATGGGGAGCTGGGCTGGGGCTGGGGGTGAGTCCATGGGGAGCTGGGCTGGGGCTGGGGGTGAGTCCATGGGGAGCTGGGGCTGGGGCTGGGACTAGTCCATGGGCAGCTGGGCTGGGGCTGGGGGTGAGTCCATGGGGAGCTGGGCTGGGGCTGGGGGTGAGTCCATGGGGAGCTGGGCTGGGGTTGGGGGTGAGTCCATGGGGAGCTGGGCTGGGTCTCCTGGGGTTGCACCTGCACTCCTGTCTGCCCTTCCCTCTGCCGATGAAGCTCAGATCCCATGATAAGGAGGCACCTGCAGACCAGGGGTCCTGCACGGACAGCCCCAGAGGTGGACATTGAGGACTCGTAGGAGGACTTGGGTCTCATACGGCGGGTGGGGAGCAGGGCCCCTTCCTGGCTGAGGACACTTGGTGCTGTCCCCTCTCAAGGCTGTTTCCCCATCTGACAAAGGGGTCTCATGTGAGCCTCCCACCAAGTGAGTCGAGGAGGGCTGGCGCCACCCCCGTGGATTCGGAGTCCGTAAGAGGGGTGTCACCCGTCATGTCCCCACCCCGTGGGCACCTTCCCGTCTCTTGGAGGGTGGCCCATGGACATGAGTTCCTCACCCCGTGTCCCTCTTGGGGAAACAGGTTTCAGGAGCGATGGGTCTTGTAGCCTGGGACAGCCAGGCCACCTGGGTGCAGCAATGCCTGAAGGCCTCCTGGCACCGAGACAGGGGCAGGAGCAGATCCCACCAGCGGGAAGGTGGTGGGTTCTAGTGCTGGGATCCACCAGCTGACAGGTGGAGCTGCCAGTCTCCAGTGCTCAGCCCTCAGCGGGGCCTGCCTGGCAGCCCCACACACAGAGGGCATCGGGGTGGCGGGGGCACGTGTTACACGGGGGCCCTGGGTCTGAGTCATCCACTTCCTCCGAGTCTGGATGGGAGGACCCAGCGCCCCTCCTCCGCCCCCTCCTGATCTGGAAGCATAAATGGGGAGGGGAGAGCCCACTGGGTAGAAGGAACAGGGAGCGGCCAGGGTAAGTCCCCACTCTCAGAGACCCTGACATCAGCGTCACCTGGAGCAGAGTGGCCCAGCCTCAGACTCAGAGCACCAAGACCCAGGCCTGCAGGCCTGGACCCACCCCGGTCCCCCCGTCCCAGCTCCATTCTTCACCCCACAATCTGTAGCCCCCAGCCCTGCCCTGTGAGGCCCGGCCAGGCCCACGATGCTCCTCCTTGCTCCCCAGATGCTGAATCTGCTGCTGCTGGCGCTGCCCGTCCTGGCGAGCCGCGCCTACGCGGCCCCTGGTGAGTCCCAGCCGGGGTCCACCCTGCCCCTCACCACATTCCACAGGTCAGGGCCTGGGTGGGTTCTGGGGAGGTCGGGCTGGCCCCCACACAGGGAAGGGCTGGGCCCAGGCCTGGGGCTGCTTCCTGGTCCTGACCTGGCACCTGCCCCAGCCCCAGGCCAGGCCCTGCAGCGAGTGGGCATCGTTGGGGGTCAGGAGGCCCCCAGGAGCAAGTGGCCCTGGCAGGTGAGCCTGAGAGTCCGCGACCGATACTGGATGCACTTCTGCGGGGGCTCCCTCATCCACCCCCAGTGGGTGCTGACCGCAGCGCACTGCGTGGGACCGTGAGTCTCCCGGGGCCTGGAAGGGTGGGGAAGGGCTGGATGTGAGCCCTGGCTCCCGGGTGCTCCTGGGGGCTGCCCAGGGCCCTGAGTGGGATCCTCCGCTGCCCAGGGACGTCAAGGATCTGGCCGCCCTCAGGGTGCAACTGCGGGAGCAGCACCTCTACTACCAGGACCAGCTGCTGCCGGTCAGCAGGATCATCGTGCACCCACAGTTCTACACCGCCCAGATCGGAGCGGACATCGCCCTGCTGGAGCTGGAGGAGCCGGTGAACGTCTCCAGCCACGTCCACACGGTCACCCTGCCCCCTGCCTCAGAGACCTTCCCCCCGGGGATGCCGTGCTGGGTCACTGGCTGGGGCGATGTGGACAATGATGGTGGGTCTGGGGACAGTGGAGGTGGGGCCAGGGTCTTAGCCACAGCCCAGCCCCTGGGCTCCCTCTGGGCTCCAGGTGGGGGTTGCCCGGCCCCCTCCTGAGGCTGCACCCTCTTCCCCACCTGCAGAGCGCCTCCCACCGCCATTTCCTCTGAAGCAGGTGAAGGTCCCCATAATGGAAAACCACATTTGTGACGCAAAATACCACCTTGGCGCCTACACGGGAGACGACGTCCGCATCGTCCGTGACGACATGCTGTGTGCCGGGAACACCCGGAGGGACTCATGCCAGGTGGGCCCCGCCTGTCCCCCGCCCCCCGCCCCCCAACCCCCACTCCCAGGCCTGTTCGGCGAGCGCTGACCTCTGACCTTCCCAGGGCGACTCCGGAGGGCCCCTGGTGTGCAAGGTGAATGGCACCTGGCTGCAGGCGGGCGTGGTCAGCTGGGGCGAGGGCTGTGCCCAGCCCAACCGGCCTGGCATCTACACCCGTGTCACCTACTACTTGGACTGGATCCACCACTATGTCCCCAAAAAGCCGTGAGTCAGGCCTGGGGTGTCCACCTGGGTCACTGGAGAGCCAGCCCCTCCTGTCCAAAACACCACTGCTTCCTACCCAGGTGGCGACTGCCCCCCACACCTTCCCTGCCCCGTCCTGAGTGCCCCTTCCTGTCCTAAGCCCCCTGCTCTCTTCTGAGCCCCTTCCCCTGTCCTGAGGACCCTTCCCCATCCTGAGCCCCCTTCCCTGTCCTAAGCCTGACGCCTGCACCGGGCCCTCCGGCCCTCCCCTGCCCAGGCAGCTGGTGGTGGGCGCTAATCCTCCTGAGTGCTGGACCTCATTAAAGTGCATGGAAATCACTGGTGTGCATCGCTGTGTTTCTGGTTGTGGATGTCACTGGGAGAGAAGGGGTCCAGGTGTGCTGAGGACACCTGCCACAGTGTGAGGTCCTAGCCCTCAAGGCACAGCCAGTCACCGTGGGACGGGGCCTCCTGGGCAGCCCTGGTCCCCGAGGCTGGCTTCTCCCCACACGATGCATCCAGCATTCGGGTCACACAGAGCCACTCGGGCAACTCAGTTGATTATAAAGGACAGCCAGGTCCCTGCAACCGGGTCAAGACAGAGAATGGTCACCGGGAGCCCCAGGGCTGCCCATCACGAGCCCCTACCCCACGCTTCCCACGAGCTCTTCTCCCGGCCCCTCCGTCCACTGCTTGTGCTTTGCCTAGTTGTTTGCTTTGAGACGGGATCTCGCTGTGTCATCCAGGCTGAAGTGCAGTGGTGTGATCAGGGCTCACTGCAGCCTTAACTCCTGGGCTCAAGCGATCCTCCCATCTTGGCCTCCCATATAGCTGGGCCACAGGAGTGAGCCACCACGCCCAGTTAATTTTTGTATTTTCAGTAGAGATGGGGTTTCGCCATGTTGGCCAGTCTGGTCTCGAACTCCTGACCTCAAGTGATCCGCCCGCCTCGGCCTCCCAAAGTGCTGGGATGACAGGCGTGAGCCACCGCACCCGGCCTGAGTTTGACATTTTCAAATTCATTTTGAGGTCTTTCTCTACATCAATAGGTGAGCCCTCTGCGTCTGGCGAGTGTTGCATTTTATCCCGGGCTCTTGTTTGCATTTTATATTTGAACATGATTACACTCAGGAATGAAATGCGGGGCTGTTCTGGTTGAAAACAACTCTCTAAAGAAACATTCACTCTTTCCTTCCAACTGTTAGATGCAGAGATGTGCATTTAGTCTCCCGAATCTCTGCAAATGACCTCTGTCCTCACAAGGGGTGGACTCAACTCCCAGTGCCCTCTCCAGCCCCACGTGACCTCTGCCTCTGCAGCCCCTGAAGGCCCATCCCTCGGCTCCTGTTCTGCAGGCCCAGCGTCTTGTTAATGAAGATGGACCTGGAACTCGGGCCCTTCTTCCTCCCTCTGGCCCATCCCACCTTCTAGGGATCACAGAGACAGCACGGGGTGACCCCCAGGGAACACTGAGCCCCTAGAAGCACTTCCACACGCCCACTGGAGGTTTTGCGGGGTGGGAGTCGGAGGGATGAGACCCCGAAGGGAAGCAAGACGGCCCCTCAGGACAGGGCTGCCGGTGTAAGGAAAGGTGGACAGCAGGGGCCGGTCACTGGGTGGAGGGGGAGGGCGGGCTCCAGCCCCAGAGCTTCCCAAATTAGATCTAAGATCCCTGGGAAGCTCAGTGAAGCTCAGCCCAGTGACACTGGCAGATGTGAGCGTCAGCTTCAGCAGGAAGGGTCTCTCAGGACGTGGCAGGCAGGCTGCTGGCCAGGGCTGCAGCCACCTGCGTTTTGACTGGGACGGGGGCACCTGCTCCAAGGTCACCCACGTGGCTGCCGGCAGGAGGCCCTGGTTCCCCGTCACAGGGGGGTGTGAGGCGGAGGGCGAGTGGGGGGGACAGGGTTCCCACCGAGGGGACGGCACCCAGGTGGCCAGGCCACCGCAGACAGAAGCAATCCCAGGTCTCCCAGGGTCCTGGACAACAGGAGACCCCACCAAGCTGGGGGCAATCACCAGGGCCAGGCCCCCCTCCCGGTTCCTCAGTTGGCTCTCCTGTCCAATGGTGGGGGTGAACGGCACCATGTCACAGGACTGCTGGGGCTCAGGGGATGGTGCCTGAAGCTTCTTCCTCCCCAGCAGGCCTGCAATCTGGGTCGTGTGGAGCACTCTGCGGGGAGTGGCGTGCTGGGGCACAGGCAGAAAGACGGGGTCCCCAGTGCTGCAGGTGAATTGAGTTGGGACAGGTGAGGGCCCTGAAGTCCCCACCTGTGGGGACCTGGGGACAGCCCTAGAGGTCAGGACTAGAGGACCTGGTTCCATGAAGACCCTGCCCCTCA'}"
+      ]
+     },
+     "execution_count": 20,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "fasta_parser()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "100ec46f",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
+
+**********************************************************************
+
+Testing align_seqs_better.ipynb...
+
+======================================================================
+Inspecting script file debugme.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 11th Oct 2022
+Description: Getting familiar with debugging
+"""
+
+#Learning how debugging works
+
+def buggyfunc(x):
+    """a function that needs debugging"""
+    y = x
+    for i in range(x):
+        y = y-1
+        z = x/y
+    return z
+
+buggyfunc(20)
+
+# #### Playinh with some debugging options
+# def buggyfunc_2(x):
+#     y = x
+#     for i in range(x):
+#         try:
+#             y = y-1
+#             z = x/y
+#         except:
+#             print(f"This didn't work;{x = }; {y = }")
+#     return 
+    
+# ####
+
+# def buggyfunc_3(x):
+#     y = x 
+#     for i in range(x):
+#         try:
+#             y = y - 1
+#             z = x/y
+#         except ZeroDivisionError:
+#             print(f"The result of dividing a number by zero is undefined")
+#         except:
+#             print(f"This didn't work; {x = }; {y = }")
+#         else:
+#             print(f"OK; {x = }; {y = },{z = };")
+#     return z
+
+# buggyfunc_3(20)
+
+**********************************************************************
+
+Testing debugme.py...
+
+debugme.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Missing docstring, either in one or functions and/or at the script level
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Traceback (most recent call last):
+  File "/home/mhasoba/Documents/Teaching/IC_CMEE/2022-23/Coursework/StudentRepos/AgnieszkaSzwarczynska_/week2/code/debugme.py", line 19, in <module>
+    buggyfunc(20)
+  File "/home/mhasoba/Documents/Teaching/IC_CMEE/2022-23/Coursework/StudentRepos/AgnieszkaSzwarczynska_/week2/code/debugme.py", line 16, in buggyfunc
+    z = x/y
+ZeroDivisionError: division by zero
+
+======================================================================
+Inspecting script file lc2.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 11th Oct 2022
+Description: Getting familiar with list comprehensions
+"""
+
+
+# Average UK Rainfall (mm) for 1910 by month
+# http://www.metoffice.gov.uk/climate/uk/datasets
+from telnetlib import theNULL
+
+
+rainfall = (('JAN',111.4),
+            ('FEB',126.1),
+            ('MAR', 49.9),
+            ('APR', 95.3),
+            ('MAY', 71.8),
+            ('JUN', 70.2),
+            ('JUL', 97.1),
+            ('AUG',140.2),
+            ('SEP', 27.0),
+            ('OCT', 89.4),
+            ('NOV',128.4),
+            ('DEC',142.2),
+           )
+
+# (1) Use a list comprehension to create a list of month,rainfall tuples where
+# the amount of rain was greater than 100 mm.
+ 
+# (2) Use a list comprehension to create a list of just month names where the
+# amount of rain was less than 50 mm. 
+
+# (3) Now do (1) and (2) using conventional loops (you can choose to do 
+# this before 1 and 2 !). 
+
+# A good example output is:
+#
+# Step #1:
+# Months and rainfall values when the amount of rain was greater than 100mm:
+# [('JAN', 111.4), ('FEB', 126.1), ('AUG', 140.2), ('NOV', 128.4), ('DEC', 142.2)]
+# ... etc.
+
+###1
+print("Months and rainfall values when the amount of rain was greater than 100mm:")
+rainfall_values_1=[rainfall[x] for x in range(len(rainfall)) if (rainfall[x][1]) > 100 ]
+print(rainfall_values_1)
+
+###2
+print("Months when the amount of rain was less than 50mm:")
+rainfall_values_2=[rainfall[x][0] for x in range(len(rainfall)) if (rainfall[x][1]) < 50 ]
+print(rainfall_values_2)
+
+###3
+print("Months and rainfall values when the amount of rain was greater than 100mm:")
+for x in range(len(rainfall)):
+    if (rainfall[x][1]) > 100:
+        print(rainfall[x])
+
+print("Months names when the amount of rain was less than 50mm:")
+for x in range(len(rainfall)):
+    if (rainfall[x][1]) < 50:
+        print(rainfall[x][0])
+
+
+**********************************************************************
+
+Testing lc2.py...
+
+lc2.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Months and rainfall values when the amount of rain was greater than 100mm:
+[('JAN', 111.4), ('FEB', 126.1), ('AUG', 140.2), ('NOV', 128.4), ('DEC', 142.2)]
+Months when the amount of rain was less than 50mm:
+['MAR', 'SEP']
+Months and rainfall values when the amount of rain was greater than 100mm:
+('JAN', 111.4)
+('FEB', 126.1)
+('AUG', 140.2)
+('NOV', 128.4)
+('DEC', 142.2)
+Months names when the amount of rain was less than 50mm:
+MAR
+SEP
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.03099s
+
+======================================================================
+Inspecting script file align_seqs_fasta.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+
+"""
+Script to align two sequences after taking an input from user.
+It outputs one one best alignment in .csv format. 
+If no input is provided the script will run with default arguements.
+All individual functions can work independently!
+Enjoy!
+Author: Aditi Madkaikar arm122@ic.ac.uk
+Script: align_seqs_fasta.py
+Descripton: Finding sequence alignment score for two fasta files
+Arguements: Ideally two input fasta files. Can work without any.
+Date: Dec 2022
+"""
+
+__author__ = 'Aditi Madkaiakr (arm122@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'None'
+
+
+
+import sys
+import csv
+import re
+
+# Main entry point of the script. 
+def entry_point(argv='abc'):
+    """
+    The main entry function of the script. Takes arguements from the system or user. 
+    When called independently, it will work only with names of two fasta files are arguements. 
+    Else it will continue with defaults
+    """
+    if len(argv) != 3:
+        print("Too few or too many arguements...")
+        print("Continuing with defaults..")
+        seq1, seq2 = fasta_parser().values()
+    else:
+        try:
+            arg1 = argv[1]
+            arg2 = argv[2]
+            re.search(r'\w+\.fasta\s\w+\.fasta', arg1 + " " + arg2).group()
+            print("Good arguements given. Will continue with these.")
+            seq1, seq2 = fasta_parser().values()
+        except:
+            print("Going back to defaults since wrong input was given")
+            seq1, seq2 = fasta_parser().values()
+    req = seq_order(seq1, seq2)
+    
+    return 0
+
+
+#####################
+# code to read FASTA file
+#####################
+def fasta_parser(args= ['../data/407228326.fasta', '../data/407228412.fasta']):
+    """ 
+    This is a Fasta parser. Parses Fasta files and returns a dictionary of parsed files.
+    This function can take any number of inputs. If none are given it will proceed with defaults.
+    """
+    hre=re.compile('>(\S+)')
+    lre=re.compile('^(\S+)$')
+    seqs_dict = {}
+    
+    for i in range(len(args)):
+        f=open(args[i],'r')
+        lines=f.readlines()
+        
+        gene = {}
+        for line in lines:
+                outh = hre.search(line)
+                if outh:
+                        id=outh.group(1)
+                else:
+                        outl=lre.search(line)
+                        if(id in gene.keys()):
+                                gene[id] += outl.group(1)
+                        else:
+                                gene[id]  =outl.group(1)
+        seqs_dict["Seq%s" % (i+1)] = gene[id]
+        f.close()
+    return seqs_dict
+
+# Function to calcualte score at every point
+def calculate_score(s1='ATCGA', s2='ATCG', l1=5, l2=4, startpoint=0):
+    """
+    This function calculates the best source when s1, s2, l1, l2 and the startpoint are provided. 
+    It aligns the shorter sequence at the startpoint location of the longer sequence and calculates the number of matching base pairs
+    If you want to import this function as a module, assign the longer sequence s1, and the shorter to s2. 
+    l1 is length of the longest, l2 that of the shortest.
+    It has default arguements.
+    """
+    
+    matched = "" # to hold string displaying alignements
+    score = 0
+    #import ipdb; ipdb.set_trace()
+    for i in range(l2):
+        if (i + startpoint) < l1:
+            if s1[i + startpoint] == s2[i]: # if the bases match
+                matched = matched + "*"
+                score = score + 1
+            else:
+                matched = matched + "-"
+    return score
+
+# Function to order the given sequences by length
+def seq_order(seq1='ATCG', seq2='ATCGA'):
+    """
+    Orders sequences in terms based on their lengths. 
+    It takes two arguements and returns the ordered sequences and their lengths. 
+    """
+    l1 = len(seq1)
+    l2 = len(seq2)
+    if l1 >= l2:
+        s1 = seq1
+        s2 = seq2
+    else:
+        s1 = seq2
+        s2 = seq1
+        l1, l2 = l2, l1 # swap the two lengths
+    
+    if __name__ == '__main__':
+        my_best_align = None
+        my_best_score = -1
+
+        for i in range(l1): # Note that you just take the last alignment with the highest score
+            z = calculate_score(s1, s2, l1, l2, i)
+            if z > my_best_score:
+                my_best_align = "." * i + s1 # think about what this is doing!
+                my_best_score = z 
+
+        list_to_save = [my_best_align, s1, 'Best score: ', my_best_score]
+
+        f = open('../results/best_align.txt', 'w+')
+        for i in list_to_save:
+            f.write(str(i) + '\n')
+        f.close() 
+    else:
+        choice = input("Do you want to continue to calculating alignment score? [y/n]")
+        print("Thie choice you made is", choice)
+        
+        if choice.lower() == "y":
+            my_best_align = None
+            my_best_score = -1
+
+            for i in range(l1): # Note that you just take the last alignment with the highest score
+                z = calculate_score(s1, s2, l1, l2, i)
+                if z > my_best_score:
+                    my_best_align = "." * i + s1 # think about what this is doing!
+                    my_best_score = z 
+            return my_best_align, s1, my_best_score
+
+        else:
+            return "The ordered sequences and their lengths are:", s1, s2, l1, l2
+    return 0
+
+# Main thingy
+if __name__ == '__main__':
+    """Makes sure the main function is called from the command line"""
+    status = entry_point(sys.argv)
+    sys.exit(status)
+
+**********************************************************************
+
+Testing align_seqs_fasta.py...
+
+align_seqs_fasta.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Too few or too many arguements...
+Continuing with defaults..
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 2.71366s
+
+======================================================================
+Inspecting script file control_flow.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+"""Some functions exemplifying the use of control statements"""
+#docstrings are considered part of  the running code (normal comments are #stripped).Hence you can accesss your docstrings at run time.
+
+__appname__ = "boilerplate"
+__author__ = "Agnes Szwarczynska (ass122@ic.ac.uk)"
+__version__ = "0.0.1"
+__license__ = "License for this code/program"
+
+##imports##
+import sys ## module to interface our program with the operating system
+
+## functions ##
+
+def even_or_odd(x=0): #if not specifed x should take value 0.
+
+    """Find whether a number x is even or odd"""
+    if x % 2 == 0: #The conditional if
+        return f"{x} is Even!"
+    return f"{x} is Odd!"
+
+def largest_divisor_five(x=120):
+    """Find which is the largest divisor of x among 2,3,4,5."""
+    largest = 0
+    if x % 5 == 0:
+        largest = 5
+    elif x % 4 == 0: #means "else, if"
+        largest = 4
+    elif x % 3 == 0:
+        largest = 3
+    elif x % 2 == 0:
+        largest = 2
+    else: # When all other (if, elif) conditions are not met
+        return f"No divisor found for {x}!" #each function can return a value or a variable.
+    return f"The largest divisor of {x} is {largest}"
+    
+def is_prime(x=70):
+    """Find whether an integer is prime."""
+    for i in range(2,x): #range returns a sequence of integers"
+        if x % i == 0:
+            print(f"{x} is not a prime: {i} is a divisor")
+            return False
+    print(f"{x} is  a prime!")
+    return True
+
+def find_all_primes(x=22):
+    """Find allthe primes up to x"""
+    allprimes = []
+    for i in range(2, x + 1):
+        if is_prime(i):
+            allprimes.append(i)
+        print(f"There are {len(allprimes)} primes between 2 and {x}")
+    return allprimes
+
+def names(x="Agnes"):
+    """Just printing my name""" #playing with yet another function
+    print(x)
+    return(f"My name is {x}")
+
+def main(argv):
+    """Main function"""
+    print(even_or_odd(22))
+    print(even_or_odd(33))
+    print(largest_divisor_five(120))
+    print(largest_divisor_five(121))
+    print(is_prime(60))
+    print(is_prime(59))
+    print(find_all_primes(100))
+    print(names("Aleksandra"))
+    return 0
+
+if __name__ == "__main__":
+    """Makes sure the main function is called from command line"""
+    status = main(sys.argv)
+    sys.exit(status)
+**********************************************************************
+
+Testing control_flow.py...
+
+control_flow.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+22 is Even!
+33 is Odd!
+The largest divisor of 120 is 5
+No divisor found for 121!
+60 is not a prime: 2 is a divisor
+False
+59 is  a prime!
+True
+2 is  a prime!
+There are 1 primes between 2 and 100
+3 is  a prime!
+There are 2 primes between 2 and 100
+4 is not a prime: 2 is a divisor
+There are 2 primes between 2 and 100
+5 is  a prime!
+There are 3 primes between 2 and 100
+6 is not a prime: 2 is a divisor
+There are 3 primes between 2 and 100
+7 is  a prime!
+There are 4 primes between 2 and 100
+8 is not a 
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.02743s
+
+======================================================================
+Inspecting script file loops.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 11th Oct 2022
+Description: Getting familiar with for loops and functions
+"""
+
+
+# FOR loops
+for i in range(5):
+    print(i)
+
+my_lists = [0,2, "geronimo!", 3.0, True, False]
+for k in my_lists:
+    print(k)
+
+# Variable
+total = 0
+summands = [0,1,11,111,1111]
+
+for s in summands:
+    total = total + s
+    print(total)
+
+
+# Just trying things out
+summands = [0,1,11,111,1111]
+for s in summands:
+    dog = 0
+    print(1)
+    dog = dog + s
+    print(2)
+    print(dog)
+    print("done!")
+
+
+# WHILE loop
+z = 0
+
+while z < 100:
+    z = z +1
+    print(z)
+
+
+# Functions
+
+def foo(x):
+    """multiplication by x"""
+    x *= x
+    print(x)
+    return x
+
+y = foo(2)
+y
+    
+type(y)
+
+def function(x):
+    """multiplication by 2"""
+    x = 2*x
+    print (x)
+    #return x
+
+p = function(3) 
+p
+
+type(p)
+**********************************************************************
+
+Testing loops.py...
+
+loops.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+0
+1
+2
+3
+4
+0
+2
+geronimo!
+3.0
+True
+False
+0
+1
+12
+123
+1234
+1
+2
+0
+done!
+1
+2
+1
+done!
+1
+2
+11
+done!
+1
+2
+111
+done!
+1
+2
+1111
+done!
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+4
+6
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.03167s
+
+======================================================================
+Inspecting script file basic_io3.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 10 th Oct 2022
+Description: Getting familiar with dictionaries
+"""
+
+
+#############################
+# STORING OBJECTS
+#############################
+# To save an object (even complex) for later use
+my_dictionary = {"a key": 10, "another key": 11}
+
+import pickle
+
+f = open('../sandbox/testp.p','wb') #note the b: accept binary files
+pickle.dump(my_dictionary, f)
+f.close()
+
+##Load the data again
+f = open('../sandbox/testp.p','rb')
+another_dictionary = pickle.load(f)
+f.close()
+
+print(another_dictionary)
+
+**********************************************************************
+
+Testing basic_io3.py...
+
+basic_io3.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+{'a key': 10, 'another key': 11}
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.03034s
+
+======================================================================
+Inspecting script file cfexercises1.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+"""Some functions exemplifying the use of control statements"""
+#docstrings are considered part of  the running code (normal comments are #stripped).Hence you can accesss your docstrings at run time.
+
+#__appname__ = "cfexercise"
+__author__ = "Agnes Szwarczynska (ass122@ic.ac.uk)"
+__version__ = "0.0.1"
+__license__ = "License for this code/program"
+
+##imports##
+import sys ## module to interface our program with the operating system
+import doctest
+from tempfile import tempdir
+
+#A couple of functions
+
+def foo_1(x):
+    """multiplication"""
+    return x ** 0.5
+
+
+def foo_2(x,y):
+    """checking whether x is bigger than y"""
+    if x>y:
+        return x
+    return y
+
+
+def foo_3(x,y,z):    #printing x,y,z in ascending order
+    """printing in ascending order"""
+    if x > y:
+        tmp = y
+        y = x
+        x = tmp
+    if y > z:
+        tmp = z
+        z = y = tmp
+    return [x, y, z]
+
+
+def foo_4(x):      #calculates factorial of x
+    """calculates factorial of x"""
+    result = 1
+    for i in range(1, x+1):
+        result = result * i
+        print(result)
+    return result
+
+
+def foo_5(x): ## a recursive function that calculates the factorial of x
+    """calculates the factorial of x"""
+    if x ==1:
+        return 1
+    if x ==0:
+        return 1
+    return x * foo_5(x-1)
+
+
+def foo_6(x): # Calculate the factorial of x in a different way; no if statement involved
+    """calculates the factorial of x"""
+    facto = 1
+    if x==0:
+        return 1
+    while x >= 1:
+        facto = facto * x
+        x = x - 1
+    return facto
+
+
+def main(argv):
+    """Main entry point of the program"""
+    print("This is cfexercise")
+    print(foo_1(5))
+    print(foo_2(5,4))
+    print(foo_3(5,4,7))
+    print(foo_4(5))
+    print(foo_5(5))
+    print(foo_6(5))
+    return 0 # NOTE: indented using two tabs or 4 spaces
+
+
+if __name__ == "__main__":
+    """Makes sure the "main function is called from command line"""
+    status = main(sys.argv)
+    sys.exit(status)   
+**********************************************************************
+
+Testing cfexercises1.py...
+
+cfexercises1.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+This is cfexercise
+2.23606797749979
+5
+[4, 5, 7]
+1
+2
+6
+24
+120
+120
+120
+120
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.05143s
+
+======================================================================
+Inspecting script file oaks.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 15th Oct 2022
+Description: Searching for oaks species
+"""
+
+## Finds just those taxa that are oak trees from a list of species
+
+taxa = [ 'Quercus robur',
+         'Fraxinus excelsior',
+         'Pinus sylvestris',
+         'Quercus cerris',
+         'Quercus petraea',
+       ]
+
+def is_an_oak(name):
+    """main entry point of the programme
+    """
+    return name.lower().startswith('quercus ')
+
+##Using for loops
+oaks_loops = set()
+for species in taxa:
+    if is_an_oak(species):
+        oaks_loops.add(species)
+print(oaks_loops)
+
+##Using list comprehensions   
+oaks_lc = set([species for species in taxa if is_an_oak(species)])
+print(oaks_lc)
+
+##Get names in UPPER CASE using for loops
+oaks_loops = set()
+for species in taxa:
+    if is_an_oak(species):
+        oaks_loops.add(species.upper())
+print(oaks_loops)
+
+##Get names in UPPER CASE using list comprehensions
+oaks_lc = set([species.upper() for species in taxa if is_an_oak(species)])
+print(oaks_lc)
+**********************************************************************
+
+Testing oaks.py...
+
+oaks.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+{'Quercus robur', 'Quercus petraea', 'Quercus cerris'}
+{'Quercus robur', 'Quercus petraea', 'Quercus cerris'}
+{'QUERCUS PETRAEA', 'QUERCUS ROBUR', 'QUERCUS CERRIS'}
+{'QUERCUS PETRAEA', 'QUERCUS ROBUR', 'QUERCUS CERRIS'}
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.02941s
+
+======================================================================
+Inspecting script file align_seqs_better.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Script to align two sequences after taking an input from user.
+It saves all the best alignments in binary format.
+If no input is provided the script will run with default arguements.
+All individual functions can work independently!
+Enjoy!
+Author: Aditi Madkaikar arm122@ic.ac.uk
+Script: align_seqs_fasta.py
+Descripton: Finding sequence alignment score for two fasta files
+Arguements: Ideally two input fasta files. Can work without any.
+Date: Dec 2022
+"""
+
+__author__ = 'Aditi Madkaiakr (arm122@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'None'
+
+
+
+import sys
+import csv
+import re
+import pickle 
+
+# Main entry point of the script. 
+def entry_point(argv='abc'):
+    """
+    The main entry function of the script. Takes arguements from the system or user. 
+    When called independently, it will work only with names of two fasta files are arguements. 
+    Else it will continue with defaults
+    """
+    if len(argv) != 3:
+        print("Too few or too many arguements...")
+        print("Continuing with defaults..")
+        seq1, seq2 = fasta_parser().values()
+    else:
+        try:
+            arg1 = argv[1]
+            arg2 = argv[2]
+            re.search(r'\w+\.fasta\s\w+\.fasta', arg1 + " " + arg2).group()
+            print("Good arguements given. Will continue with these.")
+            seq1, seq2 = fasta_parser().values()
+        except:
+            print("Going back to defaults since wrong input was given")
+            seq1, seq2 = fasta_parser().values()
+    req = seq_order(seq1, seq2)
+    
+    return 0
+
+
+#####################
+# code to read FASTA file
+#####################
+def fasta_parser(args= ['../data/407228326.fasta', '../data/407228412.fasta']):
+    """ 
+    This is a Fasta parser. Parses Fasta files and returns a dictionary of parsed files.
+    This function can take any number of inputs. If none are given it will proceed with defaults.
+    """
+    hre=re.compile('>(\S+)')
+    lre=re.compile('^(\S+)$')
+    seqs_dict = {}
+    
+    for i in range(len(args)):
+        f=open(args[i],'r')
+        lines=f.readlines()
+        
+        gene = {}
+        for line in lines:
+                outh = hre.search(line)
+                if outh:
+                        id=outh.group(1)
+                else:
+                        outl=lre.search(line)
+                        if(id in gene.keys()):
+                                gene[id] += outl.group(1)
+                        else:
+                                gene[id]  =outl.group(1)
+        seqs_dict["Seq%s" % (i+1)] = gene[id]
+        f.close()
+    return seqs_dict
+
+# Function to calcualte score at every point
+def calculate_score(s1='ATCGA', s2='ATCG', l1=5, l2=4, startpoint=0):
+    """
+    This function calculates the best source when s1, s2, l1, l2 and the startpoint are provided. 
+    It aligns the shorter sequence at the startpoint location of the longer sequence and calculates the number of matching base pairs
+    If you want to import this function as a module, assign the longer sequence s1, and the shorter to s2. 
+    l1 is length of the longest, l2 that of the shortest.
+    It has default arguements.
+    """
+    
+    matched = "" # to hold string displaying alignements
+    score = 0
+    #import ipdb; ipdb.set_trace()
+    for i in range(l2):
+        if (i + startpoint) < l1:
+            if s1[i + startpoint] == s2[i]: # if the bases match
+                matched = matched + "*"
+                score = score + 1
+            else:
+                matched = matched + "-"
+    return score
+
+# Function to order the given sequences by length
+def seq_order(seq1='ATCG', seq2='ATCGA'):
+    """
+    Orders sequences in terms based on their lengths. 
+    It takes two arguements and returns the ordered sequences and their lengths. 
+    """
+    l1 = len(seq1)
+    l2 = len(seq2)
+    if l1 >= l2:
+        s1 = seq1
+        s2 = seq2
+    else:
+        s1 = seq2
+        s2 = seq1
+        l1, l2 = l2, l1 # swap the two lengths
+    
+    if __name__ == '__main__':
+        my_best_align = None
+        my_best_score = -1
+        dict_to_save = dict()
+
+        for i in range(l1): # Note that you just take the last alignment with the highest score
+            z = calculate_score(s1, s2, l1, l2, i)
+            if z >= my_best_score:
+                my_best_align = "." * i + s1 # think about what this is doing!
+                my_best_score = z
+                num = i  
+                list_to_save = [my_best_align, s1, 'Best score: ', my_best_score]
+            dict_to_save[num] = list_to_save
+
+        f = open('../results/better_aligned_seqs.p', 'wb')
+        pickle.dump(dict_to_save, f)
+        f.close()
+
+    else:
+        choice = input("Do you want to continue to calculating alignment score? [y/n]")
+        print("Thie choice you made is", choice)
+        
+        if choice.lower() == "y":
+            my_best_align = None
+            my_best_score = -1
+            dict_to_save = dict()
+   
+            for i in range(l1): # Note that you just take the last alignment with the highest score
+                z = calculate_score(s1, s2, l1, l2, i)
+                if z > my_best_score:
+                    my_best_align = "." * i + s1 # think about what this is doing!
+                    my_best_score = z 
+                    num = i
+                    list_to_save = [my_best_align, s1, 'Best score: ', my_best_score]
+                dict_to_save[num] = list_to_save
+            return dict_to_save
+        else:
+            return "The ordered sequences and their lengths are:", s1, s2, l1, l2
+    return 0
+
+# Main thingy
+if __name__ == '__main__':
+    """Makes sure the main function is called from the command line"""
+    status = entry_point(sys.argv)
+    sys.exit(status)
+
+**********************************************************************
+
+Testing align_seqs_better.py...
+
+align_seqs_better.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Too few or too many arguements...
+Continuing with defaults..
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 2.66907s
+
+======================================================================
+Inspecting script file align_seqs.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""Programm that aligns two DNA sequences and print the best score"""
+
+__appname__ = 'DNA algorithm'
+__author__ = 'Agnes Szwarczynska(aas122@ic.ac.uk)'
+
+## imports ##
+from os import write
+import sys # module to interface our program with the operating system
+from struct import calcsize
+import csv
+
+## functions ##
+
+# A function that computes a score by returning the number of matches starting
+# from arbitrary startpoint (chosen by user)
+
+def calculate_score(s1, s2, l1, l2, startpoint):
+    """Calculating scores - matching nucleotides"""
+    matched = "" # to hold string displaying alignements
+    score = 0
+    for i in range(l2):
+        if (i + startpoint) < l1:
+            if s1[i + startpoint] == s2[i]: # if the bases match
+                matched = matched + "*"
+                score = score + 1
+            else:
+                matched = matched + "-"
+
+    # some formatted output
+    print("." * startpoint + matched)           
+    print("." * startpoint + s2)
+    print(s1)
+    print(score) 
+    print(" ")
+    
+    return score
+
+def main(argv):
+    """Main entry point of the programme"""
+    f = open("../data/seq.csv", "r")
+    sequences_input = csv.reader(f)
+    for line in sequences_input:
+        sequences = line
+
+    seq1 = str(sequences[0])
+    seq2 = str(sequences[1])
+
+    # Assign the longer sequence s1, and the shorter to s2
+    # l1 is length of the longest, l2 that of the shortest
+
+    l1 = len(seq1)
+    l2 = len(seq2)
+    if l1 >= l2:
+        s1 = seq1
+        s2 = seq2
+    else:
+        s1 = seq2
+        s2 = seq1
+        l1, l2 = l2, l1 # swap the two lengths
+
+    # now try to find the best match (highest score) for the two sequences
+    my_best_align = None
+    my_best_score = -1
+
+
+    for i in range(l1): # Note that you just take the last alignment with the highest score
+        z = calculate_score(s1, s2, l1, l2, i)
+        if z > my_best_score:
+            my_best_align = "." * i + s2 # think about what this is doing!
+            my_best_score = z 
+    print(my_best_align)
+    print(s1)
+    print("Best score:", my_best_score)
+
+    #save the output in a different file in the results folder
+    with open("../results/align_seq_output.txt", 'w') as g:
+        g.write(my_best_align + '\n'+ s1 + '\n' + "Best score:" + str(my_best_score))
+
+    return 0
+
+if __name__ == "__main__": 
+    """Makes sure the "main" function is called from command line"""  
+    status = main(sys.argv)
+    sys.exit(status)
+**********************************************************************
+
+Testing align_seqs.py...
+
+align_seqs.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+----------**-**
+GGCTAAGGCTCGAAA
+ATTGCCTAAGCGTAAGTCGAT
+4
+ 
+.------------**-
+.GGCTAAGGCTCGAAA
+ATTGCCTAAGCGTAAGTCGAT
+2
+ 
+..-**--*-**---*--
+..GGCTAAGGCTCGAAA
+ATTGCCTAAGCGTAAGTCGAT
+6
+ 
+...*-*****--*-----
+...GGCTAAGGCTCGAAA
+ATTGCCTAAGCGTAAGTCGAT
+7
+ 
+....----*--*---*---
+....GGCTAAGGCTCGAAA
+ATTGCCTAAGCGTAAGTCGAT
+3
+ 
+.....------*-------*
+.....GGCTAAGGCTCGAAA
+ATTGCCTAAGCGTAAGTCGAT
+2
+ 
+......-------------*-
+......GGCTAAGGCTCGAAA
+ATTGCCTAAGCGTAAGTCGAT
+1
+ 
+.......---------****-
+.......GGCTAAGGCTCGAAA
+ATTGCCTA
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.02792s
+
+======================================================================
+Inspecting script file using_name.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 16th Oct 2022
+Description: Getting familiar with modules
+"""
+
+if __name__ == '__main__':
+    print('This program is being run by itself!')
+else:
+    print('I am being imported from another script/program/module!')
+
+print("This module's name is: " + __name__)
+**********************************************************************
+
+Testing using_name.py...
+
+using_name.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+This program is being run by itself!
+This module's name is: __main__
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.02694s
+
+======================================================================
+Inspecting script file dictionary.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 11th Oct 2022
+Description: Getting familiar with dictionaries
+"""
+
+from pprint import pprint
+
+taxa = [ ('Myotis lucifugus','Chiroptera'),
+         ('Gerbillus henleyi','Rodentia',),
+         ('Peromyscus crinitus', 'Rodentia'),
+         ('Mus domesticus', 'Rodentia'),
+         ('Cleithrionomys rutilus', 'Rodentia'),
+         ('Microgale dobsoni', 'Afrosoricida'),
+         ('Microgale talazaci', 'Afrosoricida'),
+         ('Lyacon pictus', 'Carnivora'),
+         ('Arctocephalus gazella', 'Carnivora'),
+         ('Canis lupus', 'Carnivora'),
+        ]
+
+# Write a python script to populate a dictionary called taxa_dic derived from
+# taxa so that it maps order names to sets of taxa and prints it to screen.
+# 
+# An example output is:
+#  
+# 'Chiroptera' : set(['Myotis lucifugus']) ... etc. OR, 'Chiroptera': {'Myotis
+#  lucifugus'} ... etc
+
+taxa_dic = {"Chiroptera": [],"Rodentia": [], "Afrosoricida": [], "Carnivora": []} #creating a dictionary with four orders to populate
+for x in range(len(taxa)):
+    if taxa[x][1] == "Chiroptera":
+        taxa_dic["Chiroptera"].append(taxa[x][0])  #appending all species from the Chiroptera order
+    if taxa[x][1] == "Rodentia":
+        taxa_dic["Rodentia"].append(taxa[x][0]) 
+    if taxa[x][1] == "Afrosoricida":
+        taxa_dic["Afrosoricida"].append(taxa[x][0]) 
+    if taxa[x][1] == "Carnivora":
+        taxa_dic["Carnivora"].append(taxa[x][0])   
+pprint(taxa_dic)
+
+
+# Now write a list comprehension that does the same (including the printing after the dictionary has been created)  
+
+order_set = set([x[1] for x in taxa])  #creating a set of orders present in taxa
+taxa_dic = dict()     #creating an empty dictionary
+
+for order in order_set:    #adding species to each order set within a dictionary if the species name matches the genus name
+    taxa_dic[order] = set()
+    taxa_dic[order] = [(species[0]) for species in taxa if species[1] == order]
+pprint(taxa_dic)
+
+
+
+
+
+**********************************************************************
+
+Testing dictionary.py...
+
+dictionary.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+{'Afrosoricida': ['Microgale dobsoni', 'Microgale talazaci'],
+ 'Carnivora': ['Lyacon pictus', 'Arctocephalus gazella', 'Canis lupus'],
+ 'Chiroptera': ['Myotis lucifugus'],
+ 'Rodentia': ['Gerbillus henleyi',
+              'Peromyscus crinitus',
+              'Mus domesticus',
+              'Cleithrionomys rutilus']}
+{'Afrosoricida': ['Microgale dobsoni', 'Microgale talazaci'],
+ 'Carnivora': ['Lyacon pictus', 'Arctocephalus gazella', 'Canis lupus'],
+ 'Chiroptera': ['Myotis lucifugus'],
+ 'Rodentia':
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.03874s
+
+======================================================================
+Inspecting script file test_control_flow.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""Some functions exemplifying the use of control statements"""
+
+__author__ = 'Agnes Szwarczynska (aas122@ic.ac.uk)'
+__version__ = '0.0.1'
+
+import sys
+import doctest # Import the doctest module
+
+def even_or_odd(x=0):
+    """Find whether a number x is even or odd.
+      
+    >>> even_or_odd(10)
+    '10 is Even!'
+    
+    >>> even_or_odd(5)
+    '5 is Odd!'
+        
+    in case of negative numbers, the positive is taken:    
+    >>> even_or_odd(-2)
+    '-2 is Even!'
+    
+    """
+    #Define function to be tested
+    if x % 2 == 0:
+        return f"{x} is Even!"
+    return f"{x} is Odd!"
+
+def main(argv): 
+    """Main entry point of the programme"""
+    print(even_or_odd(22))
+    print(even_or_odd(33))
+    return 0
+
+if (__name__ == "__main__"):
+    status = main(sys.argv)
+
+doctest.testmod()   # To run with embedded tests
+**********************************************************************
+
+Testing test_control_flow.py...
+
+test_control_flow.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+22 is Even!
+33 is Odd!
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.04728s
+
+======================================================================
+Inspecting script file oaks_debugme_groupwork.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+"""This script checks whether the TestOaksData.csv input file contains a header,
+prints tree species and saves only the oak species"""
+
+__author__ = "__Group3__"
+
+import csv
+import sys
+import doctest
+
+#Define function
+def is_an_oak(name):
+    """ Returns True if name starts with 'quercus' and is followed by a space.
+
+    >>> is_an_oak("Fagus sylvatica")
+    False
+
+    >>> is_an_oak("Quercuss ilex")
+    False
+
+    >>> is_an_oak("Quercus Ilex")
+    True
+
+    >>> is_an_oak("QUERCUS ILEX")
+    True
+
+    >>> is_an_oak("quercus ilex")    
+    True
+    """
+
+    return name.lower().startswith('quercus ')
+
+### Checking whether the dataset contains any oak species (species are given in latin)
+def main(argv): 
+    """ main entry pointry of the script"""
+    f = open('../data/TestOaksData.csv','r')
+    g = open('../results/JustOaksData.csv','w')
+    taxa = csv.reader(f)
+    csvwrite = csv.writer(g)
+    oaks = set()
+    
+    csvwrite.writerow(["Genus", "Species"]) ### Adding column headers to the output list
+    
+    for row in taxa:
+        if row[0].lower().startswith('genus'): ### Checking whether the input file contains header 
+            continue
+        print(row)
+        print ("The genus is: ") 
+        print(row[0] + '\n')
+        if is_an_oak(row[0] + " "):
+            print('FOUND AN OAK!\n')
+            csvwrite.writerow([row[0], row[1]])    
+
+    return 0
+    
+if (__name__ == "__main__"):
+    status = main(sys.argv)
+
+doctest.testmod() 
+**********************************************************************
+
+Testing oaks_debugme_groupwork.py...
+
+oaks_debugme_groupwork.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+['Quercus', ' robur']
+The genus is: 
+Quercus
+
+FOUND AN OAK!
+
+['Fraxinus', ' excelsior']
+The genus is: 
+Fraxinus
+
+['Pinus', ' sylvestris']
+The genus is: 
+Pinus
+
+['Quercus', ' cerris']
+The genus is: 
+Quercus
+
+FOUND AN OAK!
+
+['Quercus', ' petraea']
+The genus is: 
+Quercus
+
+FOUND AN OAK!
+
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.04758s
+
+======================================================================
+Inspecting script file sysargv.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 10th Oct 2022
+Description: Running very first Python scripts.
+"""
+
+import sys
+print("This is the name of the script: ", sys.argv[0])
+print("Number of arguments: ", len(sys.argv))
+print("The arguments are: ", str(sys.argv))
+**********************************************************************
+
+Testing sysargv.py...
+
+sysargv.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+This is the name of the script:  sysargv.py
+Number of arguments:  1
+The arguments are:  ['sysargv.py']
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.02331s
+
+======================================================================
+Inspecting script file tuple.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 11th Oct 2022
+Description: Getting familiar with tuples
+"""
+
+
+birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
+          ('Delichon urbica','House martin',19),
+          ('Junco phaeonotus','Yellow-eyed junco',19.5),
+          ('Junco hyemalis','Dark-eyed junco',19.6),
+          ('Tachycineata bicolor','Tree swallow',20.2),
+        )
+
+# Birds is a tuple of tuples of length three: latin name, common name, mass.
+# write a (short) script to print these on a separate line or output block by
+# species 
+# 
+# A nice example output is:
+# 
+# Latin name: Passerculus sandwichensis Common name: Savannah sparrow Mass: 18.7
+# ... etc.
+
+
+for x in range(len(birds)):
+    print ("Latin name: ", birds[x][0], "Common name: ", birds[x][1], "Mass: ", birds[x][2])
+**********************************************************************
+
+Testing tuple.py...
+
+tuple.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Latin name:  Passerculus sandwichensis Common name:  Savannah sparrow Mass:  18.7
+Latin name:  Delichon urbica Common name:  House martin Mass:  19
+Latin name:  Junco phaeonotus Common name:  Yellow-eyed junco Mass:  19.5
+Latin name:  Junco hyemalis Common name:  Dark-eyed junco Mass:  19.6
+Latin name:  Tachycineata bicolor Common name:  Tree swallow Mass:  20.2
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.02809s
+
+======================================================================
+Inspecting script file cfexercises2.py...
+
+File contents are:
+
+**********************************************************************
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 17th Oct 2022
+Description: Getting familiar with functions
+"""
+
+#Playing with a couple of functions and list comprehensions
+#Checking whether x can be divided by 3 without the remainder
+
+def hello_1(x):
+    """a simple function that prints 'hello'- sometimes"""
+    for j in range(x):
+        if j % 3 ==0:
+            print("hello")
+    print ("")
+
+hello_1(12)
+
+#Checking whether x can be divided by 5 & 4 without the remainder
+
+def hello_2(x):
+    """a simple function that prints 'hello'- sometimes"""
+    for j in range(x):
+        if j % 5 == 3:
+            print("hello")
+        elif j % 4 == 3:
+            print("hello")
+    print("")
+
+hello_2(12)     
+
+#
+def hello_3(x,y):
+    """a simple function that prints 'hello'- sometimes"""
+    for i in range(x,y):
+        print("hello")
+    print("")
+
+hello_3(3,17)
+
+#
+def hello_4(x):
+    """a simple function that prints 'hello'- sometimes"""
+    while x != 15:
+        print("hello")
+        x = x + 3
+    print("")
+
+hello_4(0)
+
+#
+def hello_5(x):
+    """a simple function that prints 'hello'- sometimes"""
+    while x < 100:
+        if x == 31:
+            for k in range(7):
+                print("hello")
+        elif x == 18:
+            print("hello")
+        x = x+1
+    print("")
+
+hello_5(19)
+"""a simple function that prints 'hello'- sometimes"""
+
+#WHILE loop with BREAK
+def hello_6(x,y):
+    """a simple function that prints 'hello'- sometimes"""
+    while x: #while x is True
+        print("hello! " + str(y))
+        y += 1
+        if y == 6:
+            break
+    print("")
+
+hello_6 (True,0)
+
+#Comprehensions
+
+x = [i for i in range(10)]
+print(x)
+
+#
+x  = []
+for i in range(10):
+    x.append(i)
+print(x)
+
+#
+x = ["LIST","COMPREHENSIONS","ARE","COOL"]
+for i in range(len(x)): #explicit loop
+    x[i] = x[i].lower()
+    print(x)
+
+#
+x = [i.lower() for i in ["LIST","COMPREHENSIONS","ARE","COOL"]]
+print(x)
+
+#
+x = ["LIST","COMPREHENSIONS","ARE","COOL"]
+x_new = []
+for i in x: #implicit
+    x_new.append(i.lower())
+print(x_new)
+
+#
+matrix = [[1,2,3],[4,5,6],[7,8,9]]
+flattened_matrix = []
+for row in matrix:
+    for n in row:
+        flattened_matrix.append(n)
+print(flattened_matrix)
+
+#
+matrix = [[1,2,3],[4,5,6],[7,8,9]]
+flattened_matrix = [n for row in matrix for n in row]
+
+#
+words = (["These","are","some","words"])
+first_letters = set()
+for w in words:
+    first_letters.add(w[0])
+
+print(first_letters)
+
+# 
+words = (["These","are", "some","words"])
+first_letters = {w[0] for w in words}
+
+print(first_letters)
+
+**********************************************************************
+
+Testing cfexercises2.py...
+
+cfexercises2.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+hello
+hello
+hello
+hello
+
+hello
+hello
+hello
+hello
+
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+
+hello
+hello
+hello
+hello
+hello
+
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+
+hello! 0
+hello! 1
+hello! 2
+hello! 3
+hello! 4
+hello! 5
+
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+['list', 'COMPREHENSIONS', 'ARE', 'COOL']
+['list', 'comprehensions', 'ARE', 'COOL']
+['list', 'comprehensions', 'are', 'COOL']
+['list', 'comprehensions', 'are', 'cool']
+['list'
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.02390s
+
+======================================================================
+Inspecting script file basic_io1.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 10th Oct 2022
+Description: Getting familiar with opening and saving files
+"""
+
+#############################
+# FILE INPUT
+#############################
+# Open a file for reading
+f = open('../sandbox/test.txt', 'r')
+#use "implicit" for loop:
+#if the object is a file, python will cycle over lines
+for line in f:
+    print(line)
+
+# close the file
+f.close()
+
+# Same example, skip blank lines
+f = open('../sandbox/test.txt', 'r')
+for line in f:
+    if len(line.strip()) > 0:
+        print(line)
+
+f.close()
+
+
+# or a different way of opening a file for read
+# Open a file for reading
+with open('../sandbox/test.txt', 'r') as f:
+    # use "implicit" for loop:
+    # if the object is a file, python will cycle over lines
+    for line in f:
+        print(line)
+
+# Once you drop out of the with, the file is automatically closed
+
+# Same example, skip blank lines
+with open('../sandbox/test.txt', 'r') as f:
+    for line in f:
+        if len(line.strip()) > 0:
+            print(line)
+**********************************************************************
+
+Testing basic_io1.py...
+
+basic_io1.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+21
+
+22
+
+23
+
+24
+
+25
+
+26
+
+27
+
+28
+
+29
+
+30
+
+31
+
+32
+
+33
+
+34
+
+35
+
+36
+
+37
+
+38
+
+39
+
+40
+
+41
+
+42
+
+43
+
+44
+
+45
+
+46
+
+47
+
+48
+
+49
+
+50
+
+51
+
+52
+
+53
+
+54
+
+55
+
+56
+
+57
+
+58
+
+59
+
+60
+
+61
+
+62
+
+63
+
+64
+
+65
+
+66
+
+67
+
+68
+
+69
+
+70
+
+71
+
+72
+
+73
+
+74
+
+75
+
+76
+
+77
+
+78
+
+79
+
+80
+
+81
+
+82
+
+83
+
+84
+
+85
+
+86
+
+87
+
+88
+
+89
+
+90
+
+91
+
+92
+
+93
+
+94
+
+95
+
+96
+
+97
+
+98
+
+99
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+21
+
+22
+
+23
+
+24
+
+25
+
+26
+
+27
+
+28
+
+29
+
+3
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.02563s
+
+======================================================================
+Inspecting script file basic_io2.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 11th Oct 2022
+Description: Getting familiar with saving files
+"""
+
+#############################
+# FILE OUTPUT
+#############################
+# Save the elements of a list to a file
+list_to_save = range(100)
+
+f = open('../sandbox/testout.txt','w')
+for i in list_to_save:
+    f.write(str(i) + '\n') ## Add a new line at the end
+
+f.close()
+**********************************************************************
+
+Testing basic_io2.py...
+
+basic_io2.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.03598s
+
+======================================================================
+Inspecting script file boilerplate.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+"""Description of this program or application. You can write several lines"""
+
+__appname__ = "boilerplate"
+__author__ = "Agnes Szwarczynska (ass122@ic.ac.uk)"
+__version__ = "0.0.1"
+__license__ = "License for this code/program"
+
+##imports##
+import sys ## module to interface our program with the operating system
+
+## constants ##
+
+## functions ##
+
+def main(argv):
+    """Main entry point of the program"""
+    print("This is a boilerplare") # NOTE: indented using two tabs or 4 spaces
+    return 0
+
+if __name__ == "__main__":
+    """Makes sure the "main function is called from command line"""
+    status = main(sys.argv)
+    sys.exit(status)
+**********************************************************************
+
+Testing boilerplate.py...
+
+boilerplate.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+This is a boilerplare
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.03674s
+
+======================================================================
+Inspecting script file MyExampleScript.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 11th Oct 2022
+Description: Running very first Python scripts.
+"""
+
+
+
+def foo(x):
+    """
+    multiplying
+    """
+    x *= x
+    print(x)
+    
+foo(2)
+
+**********************************************************************
+
+Testing MyExampleScript.py...
+
+MyExampleScript.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+4
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.02564s
+
+======================================================================
+Inspecting script file lc1.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 15th Oct 2022
+Description: Exploring list comprehensions 
+"""
+
+
+birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
+          ('Delichon urbica','House martin',19),
+          ('Junco phaeonotus','Yellow-eyed junco',19.5),
+          ('Junco hyemalis','Dark-eyed junco',19.6),
+          ('Tachycineata bicolor','Tree swallow',20.2),
+         )
+
+#(1) Write three separate list comprehensions that create three different
+# lists containing the latin names, common names and mean body masses for
+# each species in birds, respectively. 
+
+# (2) Now do the same using conventional loops (you can choose to do this 
+# before 1 !). 
+
+# A nice example out out is:
+# Step #1:
+# Latin names:
+# ['Passerculus sandwichensis', 'Delichon urbica', 'Junco phaeonotus', 'Junco hyemalis', 'Tachycineata bicolor']
+# ... etc.
+
+###1 using list comprehensions to print three lists containing latin names, common names and respective body masses
+print("Latin names:")
+body_mass_lc = [(birds[x][0]) for x in range(len(birds))]
+print(body_mass_lc)
+
+print("Common names:")
+common_names_lc = [(birds[x][1]) for x in range(len(birds))]
+print(common_names_lc)
+
+print("Body mass:")
+body_mass_lc = [(birds[x][2]) for x in range(len(birds))]
+print(body_mass_lc)
+ 
+###2
+### using loops to print three lists containing latin names, common names and respective body masses
+print("Latin names:")
+Latin_names = []
+for x in range(len(birds)):
+    Latin_names.append(birds[x][0])
+print(Latin_names)
+
+print("Common names:")
+Common_names = []
+for x in range(len(birds)):
+    Common_names.append(birds[x][1])
+print(Common_names)
+
+print("Body mass:")
+Body_mass = []
+for x in range(len(birds)):
+    Body_mass.append(birds[x][2])
+print(Body_mass)
+
+
+
+
+
+
+
+**********************************************************************
+
+Testing lc1.py...
+
+lc1.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Latin names:
+['Passerculus sandwichensis', 'Delichon urbica', 'Junco phaeonotus', 'Junco hyemalis', 'Tachycineata bicolor']
+Common names:
+['Savannah sparrow', 'House martin', 'Yellow-eyed junco', 'Dark-eyed junco', 'Tree swallow']
+Body mass:
+[18.7, 19, 19.5, 19.6, 20.2]
+Latin names:
+['Passerculus sandwichensis', 'Delichon urbica', 'Junco phaeonotus', 'Junco hyemalis', 'Tachycineata bicolor']
+Common names:
+['Savannah sparrow', 'House martin', 'Yellow-eyed junco', 'Dark-eyed junco', 'Tree swallow']
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.02843s
+
+======================================================================
+Inspecting script file basic_csv.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 17th Oct 2022
+Description: Getting familiar with reading files
+"""
+
+import csv
+
+# Read a file containing:
+# 'Species','Infraorder','Family','Distribution','Body mass male (Kg)'
+with open('../data/testcsv.csv','r') as f:
+
+    csvread = csv.reader(f)
+    temp = []
+    for row in csvread:
+        temp.append(tuple(row))
+        print(row)
+        print("The species is", row[0])
+
+# write a file containing only species name and Body mass
+with open('../data/testcsv.csv','r') as f:
+    with open('../data/bodymass.csv','w') as g:
+
+        csvread = csv.reader(f)
+        csvwrite = csv.writer(g)
+        for row in csvread:
+            print(row)
+            csvwrite.writerow([row[0], row[4]])
+
+**********************************************************************
+
+Testing basic_csv.py...
+
+basic_csv.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+['Species', 'Infraorder', 'Family', 'Distribution', 'Body mass male (Kg)']
+The species is Species
+['Daubentonia_madagascariensis', 'Chiromyiformes ', 'Daubentoniidae', 'Madagascar', '2.7']
+The species is Daubentonia_madagascariensis
+['Allocebus_trichotis', 'Lemuriformes', 'Cheirogaleidae', 'Madagascar', '0.1']
+The species is Allocebus_trichotis
+['Avahi_laniger', 'Lemuriformes', 'Indridae', 'America', '1.03']
+The species is Avahi_laniger
+['Avahi_occidentalis', 'Lemuriformes', 'Indridae', 'Madagasc
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.02218s
+
+======================================================================
+Inspecting script file oaks_debugme.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Author: Agnes Szwarczynska; ass122@ic.ac.uk
+Date: 11th Oct 2022
+Description: Getting familiar with doctests
+"""
+
+import csv
+import sys
+import doctest
+
+#Define function
+def is_an_oak(name):
+    """ Returns True if name starts with 'quercus' and is followed by a space.
+
+    >>> is_an_oak("Fagus sylvatica")
+    False
+
+    >>> is_an_oak("Quercuss ilex")
+    False
+
+    >>> is_an_oak("Quercus Ilex")
+    True
+
+    >>> is_an_oak("QUERCUS ILEX")
+    True
+
+    >>> is_an_oak("quercus ilex")    
+    True
+    """
+
+    return name.lower().startswith('quercus ')
+
+#Checking whether the dataset contains any oak species (species are given in latin)
+def main(argv): 
+    """Main entry point of the programme"""
+    f = open('../data/TestOaksData.csv','r')
+    g = open('../results/JustOaksData.csv','w')
+    taxa = csv.reader(f)
+    csvwrite = csv.writer(g)
+    oaks = set()
+    for row in taxa:
+        print(row)
+        print ("The genus is: ") 
+        print(row[0] + '\n')
+        if is_an_oak(row[0] + " "):
+            print('FOUND AN OAK!\n')
+            csvwrite.writerow([row[0], row[1]])    
+
+    return 0
+    
+if (__name__ == "__main__"):
+    status = main(sys.argv)
+
+doctest.testmod() 
+**********************************************************************
+
+Testing oaks_debugme.py...
+
+oaks_debugme.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 98.5
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+['Genus', ' species']
+The genus is: 
+Genus
+
+['Quercus', ' robur']
+The genus is: 
+Quercus
+
+FOUND AN OAK!
+
+['Fraxinus', ' excelsior']
+The genus is: 
+Fraxinus
+
+['Pinus', ' sylvestris']
+The genus is: 
+Pinus
+
+['Quercus', ' cerris']
+The genus is: 
+Quercus
+
+FOUND AN OAK!
+
+['Quercus', ' petraea']
+The genus is: 
+Quercus
+
+FOUND AN OAK!
+
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.05234s
+
+======================================================================
+======================================================================
+Finished running scripts
+
+Ran into 2 errors
+
+======================================================================
+======================================================================
+
+FINISHED WEEKLY ASSESSMENT
+
+Current Points for the Week = 98.5
+
+NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!

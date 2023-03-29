@@ -1,0 +1,592 @@
+Starting code feedback for Agnieszka, Week6
+
+Current Points = 100
+
+Note that: 
+(1) Major sections begin with a double "====" line 
+(2) Subsections begin with a single "====" line 
+(3) Code output or text file content are printed within single "*****" lines 
+
+======================================================================
+======================================================================
+Your Git repo size this week is about 453.98 MiB on disk 
+
+PART 1: Checking project workflow...
+
+Found the following directories in parent directory: .git, aas122, MiniProject, week6, week7, week3, week2, Feedback, week1
+
+Found the following files in parent directory: README.md, .gitignore
+
+Checking for key files in parent directory...
+
+Found .gitignore in parent directory, great! 
+
+Printing contents of .gitignore:
+
+**********************************************************************
+*~ 
+*.tmp
+#*.jpg
+#*.png
+*.aux
+*.bbl
+*.log
+*.blg
+#*.csv
+#*.pdf
+
+#Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+#R
+.Rhistory
+
+*.ipynb_checkpoints
+
+**********************************************************************
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+## README file for my CMEE Coursework Repository
+
+### Brief description: 
+CMEECourseWork directory stores a set of folders contating weekly assignments and groupwork files that have been created across first 9 weeks of the course. For more detailed description go to README files in respective weekly folders. The content of this file will be continuously updated.
+
+### Languages: 
+bash, Unix shell, Python3, R version 4.2.2, LaTeX (LaTeX2ε), Jupyter Notebook version 5.0 
+
+### Dependencies: 
+Dependencies have been listed in weekly folders.
+
+### Installation: -
+
+### Project structure and Usage: 
+1) **week1 folder** - stores code, data & results from 3rd to 9th Oct 2022.
+2) **week2 folder** - stores code, data & results from 10th to 16th Oct 2022.
+3) **week3 folder** - stores code, data & results from 17th to 23rd Oct 2022.
+4) **week6 folder** - probably should be a part of **week7 folder** but we enjoyed our time on CMEE course so much that we lost track of time.
+5) **week7 folder** - stores code, data & results from 14th to 20th Nov 2022.
+6) **MiniProject** - stores code, data & results for the model-fitting MiniProject from 21th Nov to 4th Dec 2022.
+6) **aas122** - stores code, data & results for the HPC practical from 5th Dec to 19th Dec 2022.
+7) **Feedback folder** - contains outputs of auto-marking scripts run externally.
+
+### Contact: 
+Agnes Szwarczynska; aas122@ic.ac.uk
+
+
+**********************************************************************
+
+======================================================================
+Looking for the weekly directories...
+
+Found 5 weekly directories: week1, week2, week3, week6, week7
+
+The Week6 directory will be assessed 
+
+======================================================================
+======================================================================
+PART 2: Checking weekly code and workflow...
+
+======================================================================
+Assessing WEEK6...
+
+Found the following directories: code, sandbox, results, data
+
+Found the following files: README.md, .gitignore
+
+Checking for readme file in weekly directory...
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+## README file for coal_coatis
+
+### Brief description: 
+This folder conatins a set of scripts that were created by group 3 for week 6.
+
+### Languages: 
+Python 3.10.6, R 4.1.2, bash
+
+### Dependencies: 
+Python:
+sys, numpy, scipy, matplotlib, time
+
+### Project structure and Usage: 
+
+#### week 6
++ code
++ data
++ results
++ sandbox
+
+### Contact: 
++ Aditi Madkaikar; arm122@ic.ac.uk
++ Agnes Szwarczynska; aas122@ic.ac.uk
++ Ruth Brown; ruth.brown2222@imperial.ac.uk
++ Xuan Wang; xuan.wang22@imperial.ac.uk
++ Shengge Tong, shengge.tong22@imperial.ac.uk
+
+**********************************************************************
+
+Results directory is empty - good! 
+
+Found 6 code files: Vectorize2.py, Vectorize1.py, compare.sh, LV3.py, Vectorize2.R, Vectorize1.R
+
+======================================================================
+Testing script/code files...
+
+======================================================================
+Inspecting script file Vectorize2.py...
+
+File contents are:
+
+**********************************************************************
+"""This script is a Python version of vectorize2."""
+
+__appname__ = 'Vectorize2.py'
+__author__ = 'shengge.tong22@imperial.ac.uk'
+__version__= '0.0.1'
+
+import time
+import numpy as np
+
+
+def stochrick(p0=np.random.uniform(0.5, 1.5, 1000),
+              r=1.2,
+              K=1,
+              sigma=0.2,
+              numyears=100):
+    """
+    Description: Runs the stochastic Ricker equation with gaussian fluctuations
+    Args: p0, r, K, sigma, numyears
+    output: np.array
+    """
+    N = np.zeros((numyears, len(p0)))
+    N[0, ] = p0
+    for pop in range(0, len(p0)):
+        for yr in range(1, numyears):
+            N[yr, pop] = N[yr - 1, pop] * np.exp(r * (1 - N[yr - 1, pop] / K) + np.random.normal(0, sigma, 1))[0] # add one fluctuation from normal distribution
+    return N
+
+
+def stochrickvect(p0=np.random.uniform(0.5, 1.5, 1000),
+              r=1.2,
+              K=1,
+              sigma=0.2,
+              numyears=100):
+    """
+    Description: Write another function called stochrickvect that vectorizes the above to the extent possible, with improved performance
+    Args: p0, r, K, sigma, numyears
+    output: np.array
+    """         
+    N = np.zeros((numyears, len(p0)))
+    N[0,] = p0
+    for yr in range(1, numyears):
+        N[yr, ] = N[yr - 1, ] * np.exp(r * (1 - N[yr - 1, ] / K) + np.random.normal(0, sigma, 1))[0]
+    return N
+
+
+def timing(fun, *args):
+    """
+    Description: This function is used to calculate the time cost for the script
+    Args: fun, *args
+    output: float
+    """
+    start = time.time()
+    res = fun(*args)
+    end = time.time()
+    return end - start
+
+
+print("Vectorized Stochastic Ricker takes:")
+print(timing(stochrickvect))
+
+**********************************************************************
+
+Testing Vectorize2.py...
+
+Vectorize2.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Vectorized Stochastic Ricker takes:
+0.0024182796478271484
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.14834s
+
+======================================================================
+Inspecting script file Vectorize1.py...
+
+File contents are:
+
+**********************************************************************
+"""
+Author:Shengge Tong (shengge.tong22@imperial.ac.uk)
+Date: Dec.2022
+Description: Python version of Vectorize1
+"""
+import numpy as np
+import time
+
+M = np.random.uniform(0, 1, (1000, 1000))
+
+
+def SumAllElements(M):
+    """
+    Description: Using functions to sum all the elements
+    Args: M
+    output: int
+    """
+    Dimensions = M.shape
+    Tol = 0
+    for i in range(Dimensions[0]):
+        for j in range(Dimensions[1]):
+            Tol += M[i, j]
+    return Tol
+
+
+def timing(fun, *args):
+    """
+    Description: Using timing function to calculate the time cost of the script
+    Args: fun, *args
+    output: float
+    """
+    start = time.time()
+    res = fun(*args)
+    end = time.time()
+    return end - start
+
+print("Using loops, the time taken is:")
+print(timing(SumAllElements, M))
+
+print("Using the in-built vectorized function, the time taken is:")
+print(timing(np.sum, M))
+
+**********************************************************************
+
+Testing Vectorize1.py...
+
+Vectorize1.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Using loops, the time taken is:
+0.15380597114562988
+Using the in-built vectorized function, the time taken is:
+0.0005490779876708984
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.30444s
+
+======================================================================
+Inspecting script file compare.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/sh
+# Author:Shengge Tong shengge.tong22@imperial.ac.uk
+# Script: compare.sh
+# Desc: compare the time for four scrits 
+# Arguments: none
+# Date: Dec 2022
+
+echo "Running Vectorize1.py..."
+python3 Vectorize1.py
+
+echo "Running Vectorize2.py..."
+python3 Vectorize2.py
+
+echo "Running Vectorize1.R..."
+Rscript Vectorize1.R
+
+echo "Running Vectorize2.R..."
+Rscript Vectorize2.R
+
+**********************************************************************
+
+Testing compare.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Running Vectorize1.py...
+Using loops, the time taken is:
+0.15349555015563965
+Using the in-built vectorized function, the time taken is:
+0.00048542022705078125
+Running Vectorize2.py...
+Vectorized Stochastic Ricker takes:
+0.0026552677154541016
+Running Vectorize1.R...
+[1] "Using loops, the time taken is:"
+   user  system elapsed 
+  0.068   0.000   0.068 
+[1] "Using the in-built vectorized function, the time taken is:"
+   user  system elapsed 
+  0.001   0.000   0.001 
+Running Vectorize2.R...
+[1] "Vec
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 1.00278s
+
+======================================================================
+Inspecting script file LV3.py...
+
+File contents are:
+
+**********************************************************************
+"""
+Author:Shengge Tong (shengge.tong22@imperial.ac.uk)
+Date: Dec,2022
+Description: Write a discrete-time version of the LV model called LV3.py
+"""
+import sys
+import numpy as np
+import scipy.integrate as integrate
+import matplotlib.pylab as p
+
+
+try:
+    r = float(sys.argv[1])
+    a = float(sys.argv[2])
+    z = float(sys.argv[3])
+    e = float(sys.argv[4])
+    K = float(sys.argv[5])
+
+except: #use default value
+    r = 1.
+    a = 0.1 
+    z = 1.5
+    e = 0.75
+    K = 10000
+
+
+#Define dCR_dt function
+def dCR_dt(pops, t=0):
+    """
+    Description: Using functions above to practical
+    Args: pops, t
+    output: np.array
+    """
+    R = pops[0]
+    C = pops[1]
+    dRdt = R * (1 + r * (1 - R/K) - a * C)
+    dCdt = C * (1 - z + e * a * R)
+    
+    return np.array([dRdt, dCdt])
+
+
+t = np.linspace(0, 15, 1000)
+
+R0 = 10
+C0 = 5 
+RC0 = np.array([R0, C0])
+
+pops, infodict = integrate.odeint(dCR_dt, RC0, t, full_output=True)
+
+f1 = p.figure()
+
+p.plot(t, pops[:,0], 'g-', label='Resource density') # Plot
+p.plot(t, pops[:,1], 'b-', label='Consumer density')
+p.grid()
+p.legend(loc='best')
+p.xlabel('Time')
+p.ylabel('Population density')
+p.title('Consumer-Resource population dynamics')
+
+#p.show()# To display the figure
+
+f1.savefig('../results/LV_model.pdf') #Save figure
+
+f2 = p.figure()
+p.plot(pops[:,0], pops[:,1], "r-")
+p.grid()
+p.xlabel("Resource density")
+p.ylabel("Consumer density")
+p.title("Consumer-Resource population dynamics")
+f2.savefig("../results/LV_model2.pdf")
+
+**********************************************************************
+
+Testing LV3.py...
+
+LV3.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 1.50217s
+
+======================================================================
+Inspecting script file Vectorize2.R...
+
+File contents are:
+
+**********************************************************************
+# Runs the stochastic Ricker equation with gaussian fluctuations
+
+rm(list = ls())
+
+stochrick <- function(p0 = runif(1000, .5, 1.5), r = 1.2, K = 1, sigma = 0.2,numyears = 100)
+{
+
+  N <- matrix(NA, numyears, length(p0))  #initialize empty matrix
+
+  N[1, ] <- p0
+
+  for (pop in 1:length(p0)) { #loop through the populations
+
+    for (yr in 2:numyears){ #for each pop, loop through the years
+
+      N[yr, pop] <- N[yr-1, pop] * exp(r * (1 - N[yr - 1, pop] / K) + rnorm(1, 0, sigma)) # add one fluctuation from normal distribution
+    
+     }
+  
+  }
+ return(N)
+
+}
+
+# Now write another function called stochrickvect that vectorizes the above to
+# the extent possible, with improved performance: 
+
+rm(list = ls())
+stochrickvect <- function(p0 = runif(1000, .5, 1.5), r = 1.2, K = 1, sigma = 0.2,numyears = 100)
+{
+  N <- matrix(NA, numyears, length(p0))
+  N[1, ] <- p0
+  for (yr in 2:numyears){
+    N[yr, ] <- N[yr-1, ] * exp(r * (1 - N[yr - 1, ] / K) + rnorm(1, 0, sigma)) # add one fluctuation from normal distribution
+  }
+  return(N)
+}
+
+print("Vectorized Stochastic Ricker takes:")
+print(system.time(res2<-stochrickvect()))
+
+**********************************************************************
+
+Testing Vectorize2.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+[1] "Vectorized Stochastic Ricker takes:"
+   user  system elapsed 
+  0.019   0.004   0.023 
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.22554s
+
+======================================================================
+Inspecting script file Vectorize1.R...
+
+File contents are:
+
+**********************************************************************
+#This script is for Vectorize1
+M <- matrix(runif(1000000),1000,1000)
+
+SumAllElements <- function(M) {
+  Dimensions <- dim(M)
+  Tot <- 0
+  for (i in 1:Dimensions[1]) {
+    for (j in 1:Dimensions[2]) {
+      Tot <- Tot + M[i,j]
+    }
+  }
+  return (Tot)
+}
+
+print("Using loops, the time taken is:")
+print(system.time(SumAllElements(M)))
+
+print("Using the in-built vectorized function, the time taken is:")
+print(system.time(sum(M)))
+
+**********************************************************************
+
+Testing Vectorize1.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+[1] "Using loops, the time taken is:"
+   user  system elapsed 
+  0.067   0.003   0.070 
+[1] "Using the in-built vectorized function, the time taken is:"
+   user  system elapsed 
+  0.001   0.000   0.001 
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.32102s
+
+======================================================================
+======================================================================
+Finished running scripts
+
+Ran into 0 errors
+
+======================================================================
+======================================================================
+
+FINISHED WEEKLY ASSESSMENT
+
+Current Points for the Week = 100
+
+NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!
